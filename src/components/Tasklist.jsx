@@ -14,9 +14,9 @@ export default function Tasklist() {
   ];
 
   return (
-    <section className="h-screen bg-slate-100">
-      <div className="w-full space-y-5 p-4">
-        <h2 className="text-center text-xl font-bold underline decoration-emerald-400 underline-offset-4">
+    <section className="h-screen bg-slate-100 lg:pt-3.5">
+      <div className="mx-auto w-full space-y-5 p-4 lg:container">
+        <h2 className="text-center text-xl font-bold underline decoration-emerald-400 underline-offset-4 lg:text-3xl">
           Tasks
         </h2>
         <div className="rounded-md bg-white p-3 shadow-lg">
@@ -32,7 +32,7 @@ export default function Tasklist() {
                 key={task.id}
                 className="w-full border-b border-gray-400 border-opacity-20 py-1 last:border-b-0"
               >
-                <div className="flex items-center py-4">
+                <div className="bg flex items-center py-4">
                   <Task id={task.id}>{task.label}</Task>
                 </div>
               </li>
