@@ -2,8 +2,9 @@
 import { TaskProvider } from "./TaskContext";
 import Indicator from "./Indicator";
 import Label from "./Label";
-import { AiFillDelete } from "react-icons/ai";
-import { FaRegEdit } from "react-icons/fa";
+import Edit from "./Edit";
+import Delete from "./Delete";
+
 // eslint-disable-next-line react/prop-types
 const Task = ({ taskId, children }) => {
   return (
@@ -13,15 +14,11 @@ const Task = ({ taskId, children }) => {
           <Indicator />
         </div>
 
-        <div className="group flex w-full items-center justify-between">
+        <div className="group relative flex w-full items-center justify-between">
           <Label>{children}</Label>
-          <div className="hidden items-center space-x-6 rounded-lg bg-gray-50 p-2 shadow-lg group-hover:flex">
-            <button className="text-neutral-700 hover:text-blue-400">
-              <FaRegEdit className="h-7 w-7" />
-            </button>
-            <button className="text-red-500 hover:text-red-800">
-              <AiFillDelete className="h-7 w-7" />
-            </button>
+          <div className="absolute right-2 hidden items-center space-x-6 p-2 duration-700 ease-in-out group-hover:flex">
+            <Edit />
+            <Delete />
           </div>
         </div>
       </TaskProvider>
