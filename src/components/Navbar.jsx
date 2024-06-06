@@ -15,7 +15,11 @@ export default function Navbar() {
     <nav className="relative w-full rounded-b-lg">
       <div className="flex items-center justify-between bg-slate-800 px-4 py-6">
         <button className="nav-btn cursor-pointer" onClick={toggleNav}>
-          <CgMenuLeftAlt className="h-7 w-7 text-emerald-200 hover:text-emerald-600 lg:h-10 lg:w-10" />
+          <CgMenuLeftAlt
+            className={`${
+              isNavOpen ? "text-white" : "text-emerald-300"
+            } h-7 w-7 hover:text-emerald-500 lg:h-10 lg:w-10`}
+          />
         </button>
         <Logo></Logo>
         <span></span>

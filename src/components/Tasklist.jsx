@@ -16,7 +16,7 @@ export default function Tasklist() {
   return (
     <section className="h-dvh bg-slate-100 lg:pt-3.5">
       <div className="mx-auto w-full space-y-5 p-4 lg:container">
-        <h2 className="text-center text-xl font-bold underline decoration-emerald-400 underline-offset-4 lg:text-3xl">
+        <h2 className="font-raleway text-center text-xl font-bold underline decoration-emerald-400 underline-offset-4 lg:text-3xl">
           Tasks
         </h2>
         <div className="rounded-md bg-white p-3 shadow-lg">

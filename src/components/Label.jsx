@@ -9,7 +9,7 @@ const Label = ({ children }) => {
 
   return (
     <motion.label
-      className="relative break-all text-lg line-through"
+      className="font-raleway relative break-all text-lg line-through"
       htmlFor={taskId}
       animate={{
         x: isChecked ? [0, -6, 0] : [0, 6, 0],

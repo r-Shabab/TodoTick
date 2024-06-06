@@ -10,6 +10,10 @@ export default {
         blueS4: "#0077b6",
         blueS5: "#03045e",
       },
+      fontFamily: {
+        dosis: ["Dosis"],
+        raleway: ["Raleway"],
+      },
     },
   },
   plugins: [],
