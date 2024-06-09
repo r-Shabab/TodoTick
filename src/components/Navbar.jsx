@@ -12,7 +12,7 @@ export default function Navbar() {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <nav className="relative w-full rounded-b-lg">
+    <nav className="relative z-10 w-full rounded-b-lg shadow-lg">
       <div className="flex items-center justify-between bg-white px-4 py-6">
         <button className="nav-btn cursor-pointer" onClick={toggleNav}>
           <CgMenuLeftAlt
@@ -25,7 +25,7 @@ export default function Navbar() {
         <span></span>
       </div>
       <div
-        className={`nav-items absolute top-[100%] z-50 flex w-3/4 flex-col rounded-br-lg rounded-tr-lg bg-gray-300 transition-transform duration-300 md:w-1/4 ${
+        className={`nav-items absolute top-[100%] flex w-3/4 flex-col rounded-br-lg rounded-tr-lg bg-gray-300 transition-transform duration-300 md:w-1/4 ${
           isNavOpen ? "translate-x-0" : "-translate-x-full"
         } `}
       >
