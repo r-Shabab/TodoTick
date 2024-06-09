@@ -7,7 +7,7 @@ import Tasklist from "./components/Tasklist";
 
 function App() {
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-slate-50">
       <Navbar />
       <div className="relative">
         {/* <Title /> */}

@@ -25,14 +25,14 @@ export default function Navbar() {
         <span></span>
       </div>
       <div
-        className={`nav-items absolute top-[100%] flex w-3/4 flex-col rounded-br-lg rounded-tr-lg bg-gray-300 transition-transform duration-300 md:w-1/4 ${
+        className={`nav-items absolute top-[100%] flex w-3/4 flex-col rounded-br-lg rounded-tr-lg transition-transform duration-300 md:w-1/4 ${
           isNavOpen ? "translate-x-0" : "-translate-x-full"
         } `}
       >
-        <ul className="h-dvh space-y-3 bg-slate-800 p-5 2xl:hidden">
-          <li className="flex items-center space-x-2 rounded-md p-2 hover:cursor-pointer hover:bg-slate-700">
-            <RiTodoFill className="text-primary1 h-5 w-1/12 lg:h-7" />
-            <span className="w-11/12 text-lg font-bold text-white lg:text-xl">
+        <ul className="h-dvh space-y-3 bg-slate-800 p-5">
+          <li className="flex items-center space-x-2 rounded-md p-2 hover:cursor-pointer hover:bg-slate-700 lg:justify-center">
+            <RiTodoFill className="text-primary1 hover:text-accent h-5 w-1/12 lg:h-7 lg:w-7" />
+            <span className="w-11/12 text-lg font-bold text-white lg:hidden">
               Tasks
             </span>
           </li>

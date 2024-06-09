@@ -5,7 +5,7 @@ export default function Tasklist() {
     {
       id: "c-1",
       label:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur labore nostrum minima aperiam vitae ut unde aut incidunt maiores inventore!",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, tempora.",
     },
     { id: "c-2", label: "Go outside" },
     { id: "c-3", label: "Learn JS" },
@@ -14,7 +14,7 @@ export default function Tasklist() {
   ];
 
   return (
-    <section className="bg-slate-50 lg:pt-3.5">
+    <section className="lg:pt-3.5">
       <div className="mx-auto w-full space-y-5 p-4 lg:container">
         <div className="rounded-md bg-white p-3 shadow-md">
           <div className="w-full border-b-2 p-2">

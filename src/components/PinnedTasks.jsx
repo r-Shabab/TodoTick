@@ -7,7 +7,7 @@ export default function PinnedTasks() {
     { id: "c-5", label: "Call a friend" },
   ];
   return (
-    <section className="-z-10 bg-slate-50 lg:pt-3.5">
+    <section className="-z-10 lg:pt-3.5">
       <div className="mx-auto w-full space-y-5 p-4 lg:container">
         <div className="rounded-md bg-white p-3 shadow-md">
           <div className="w-full border-b-2 p-2">
