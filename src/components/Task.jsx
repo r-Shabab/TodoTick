@@ -1,6 +1,6 @@
 // Task.jsx
 import { TaskProvider } from "./TaskContext";
-import Indicator from "./Indicator";
+import Checkbox from "./Checkbox";
 import Label from "./Label";
 import Edit from "./Edit";
 import Delete from "./Delete";
@@ -11,7 +11,7 @@ const Task = ({ taskId, children }) => {
     <div className="flex w-full items-center space-x-2">
       <TaskProvider taskId={taskId}>
         <div className="relative flex items-center">
-          <Indicator />
+          <Checkbox />
         </div>
 
         <div className="group relative flex w-full items-center justify-between">

@@ -30,15 +30,15 @@ export default function Navbar() {
         } `}
       >
         <ul className="h-dvh space-y-3 bg-gradient-to-t from-emerald-600 to-emerald-400 p-5">
-          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-400">
+          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-500">
             <RiTodoFill className="h-5 w-1/12" />
             <span className="w-11/12 text-lg font-bold">Tasks</span>
           </li>
-          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-400">
+          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-500">
             <FaCheck className="h-5 w-1/12" />
             <span className="w-11/12 text-lg font-bold">Completed Tasks</span>
           </li>
-          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-400">
+          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-500">
             <AiFillDelete className="h-5 w-1/12" />
             <span className="w-11/12 text-lg font-bold">Deleted Tasks</span>
           </li>
