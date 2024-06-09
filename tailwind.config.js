@@ -4,11 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        blueS1: "#caf0f8",
-        blueS2: "#90e0ef",
-        blueS3: "#00b4d8",
-        blueS4: "#0077b6",
-        blueS5: "#03045e",
+        primary1: "#de483a",
+        primary2: "#fcfaf6",
+        accent: "#f9e9e3",
       },
       fontFamily: {
         dosis: ["Dosis"],

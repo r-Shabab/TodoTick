@@ -13,12 +13,12 @@ export default function Navbar() {
   };
   return (
     <nav className="relative w-full rounded-b-lg">
-      <div className="flex items-center justify-between bg-slate-800 px-4 py-6">
+      <div className="flex items-center justify-between bg-white px-4 py-6">
         <button className="nav-btn cursor-pointer" onClick={toggleNav}>
           <CgMenuLeftAlt
             className={`${
-              isNavOpen ? "text-white" : "text-emerald-300"
-            } h-7 w-7 hover:text-emerald-500 lg:h-10 lg:w-10`}
+              isNavOpen ? "text-red-700" : "text-primary1"
+            } h-7 w-7 hover:text-red-700 lg:h-10 lg:w-10`}
           />
         </button>
         <Logo></Logo>
@@ -29,18 +29,24 @@ export default function Navbar() {
           isNavOpen ? "translate-x-0" : "-translate-x-full"
         } `}
       >
-        <ul className="h-dvh space-y-3 bg-gradient-to-t from-emerald-600 to-emerald-400 p-5">
-          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-500">
-            <RiTodoFill className="h-5 w-1/12" />
-            <span className="w-11/12 text-lg font-bold">Tasks</span>
+        <ul className="h-dvh space-y-3 bg-slate-800 p-5 2xl:hidden">
+          <li className="flex items-center space-x-2 rounded-md p-2 hover:cursor-pointer hover:bg-slate-700">
+            <RiTodoFill className="text-primary1 h-5 w-1/12 lg:h-7" />
+            <span className="w-11/12 text-lg font-bold text-white lg:text-xl">
+              Tasks
+            </span>
           </li>
-          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-500">
-            <FaCheck className="h-5 w-1/12" />
-            <span className="w-11/12 text-lg font-bold">Completed Tasks</span>
+          <li className="flex items-center space-x-2 rounded-md p-2 hover:cursor-pointer hover:bg-slate-700">
+            <FaCheck className="text-primary1 h-5 w-1/12 lg:h-7" />
+            <span className="w-11/12 text-lg font-bold text-white lg:text-xl">
+              Completed Tasks
+            </span>
           </li>
-          <li className="flex items-center space-x-2 rounded-md p-2 text-white hover:cursor-pointer hover:bg-emerald-500">
-            <AiFillDelete className="h-5 w-1/12" />
-            <span className="w-11/12 text-lg font-bold">Deleted Tasks</span>
+          <li className="flex items-center space-x-2 rounded-md p-2 hover:cursor-pointer hover:bg-slate-700">
+            <AiFillDelete className="text-primary1 h-5 w-1/12 lg:h-7" />
+            <span className="w-11/12 text-lg font-bold text-white lg:text-xl">
+              Deleted Tasks
+            </span>
           </li>
         </ul>
       </div>

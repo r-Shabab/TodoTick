@@ -14,12 +14,12 @@ export default function Tasklist() {
   ];
 
   return (
-    <section className="bg-slate-100 lg:pt-3.5">
+    <section className="lg:pt-3.5">
       <div className="mx-auto w-full space-y-5 p-4 lg:container">
-        <div className="rounded-md bg-white p-3 shadow-lg">
-          <div className="w-full border-b-2 border-b-emerald-400 p-2">
+        <div className="rounded-md bg-white p-3 shadow-md">
+          <div className="w-full border-b-2 p-2">
             <h3 className="text-md flex items-center space-x-2 font-mono">
-              <LuListTodo className="h-6 w-6 text-emerald-800" />
+              <LuListTodo className="text-primary1 h-6 w-6" />
               <span>Todos</span>
             </h3>
           </div>
