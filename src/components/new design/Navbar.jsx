@@ -31,7 +31,7 @@ export const Navbar = () => {
       </nav>
       <nav
         id="desktopNav"
-        className={`absolute top-0 z-20 flex h-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all 2xl:flex ${expanded ? "w-[75%] xl:w-1/6" : "hidden lg:w-[30%] xl:w-[5%]"}`}
+        className={`absolute top-0 z-20 flex h-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all xl:flex ${expanded ? "w-[75%] md:w-[40%] xl:w-3/12 2xl:w-1/6" : "hidden xl:w-[8%] 2xl:w-[5%]"}`}
       >
         <div className="space-y-4">
           <div
@@ -60,7 +60,9 @@ export const Navbar = () => {
             <div
               className={`overflow-hidden rounded-lg transition-all ${expanded ? "w-full p-2" : ""}`}
             >
-              <h3 className="font-title text-lg font-semibold underline underline-offset-2">
+              <h3
+                className={`font-title text-lg font-semibold underline underline-offset-2 ${expanded ? "" : "text-center"}`}
+              >
                 MENU
               </h3>
             </div>
