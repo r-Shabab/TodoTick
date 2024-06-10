@@ -22,8 +22,6 @@ export default {
         "cancel-btn": "#F7F7F7",
       },
       fontFamily: {
-        dosis: ["Dosis"],
-        raleway: ["Raleway"],
         title: ["Titillium Web"],
         body: ["Montserrat"],
       },
