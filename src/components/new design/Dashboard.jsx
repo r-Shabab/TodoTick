@@ -1,5 +1,6 @@
 // import PinnedTasks from "../PinnedTasks";
 import PinnedTasks from "../PinnedTasks";
+import Tasklist from "../Tasklist";
 import { Searchbar } from "./Searchbar";
 import { AddButton } from "./AddButton";
 import { SortByButton } from "./SortByButton";
@@ -15,6 +16,7 @@ const Dashboard = () => {
         </div>
         <SortByButton />
         <PinnedTasks />
+        <Tasklist />
       </div>
     </div>
   );
