@@ -30,7 +30,7 @@ const Checkbox = () => {
     <div className="relative flex items-center">
       <input
         type="checkbox"
-        className="checked:bg-primary1 border-primary1 relative h-6 w-6 cursor-pointer appearance-none rounded-full border-2 bg-red-100 transition-all duration-500 checked:border-red-600"
+        className="relative h-6 w-6 cursor-pointer appearance-none rounded-full border-2 border-gray-400 bg-gray-100 transition-all duration-500 checked:border-[#276792] checked:bg-add-btn"
         onChange={handleCheckboxChange}
         id={taskId}
         checked={isChecked}

@@ -1,4 +1,3 @@
-import "./App.css";
 import Dashboard from "./components/new design/Dashboard";
 // import Navbar from "./components/Navbar";
 import { Navbar } from "./components/new design/Navbar";

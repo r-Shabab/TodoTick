@@ -11,8 +11,8 @@ export default function PinnedTasks() {
       <div className="w-full space-y-5 lg:container">
         <div className="rounded-md bg-white p-3 shadow-md">
           <div className="w-full border-b-2 p-2">
-            <h3 className="text-md flex items-center space-x-2 font-mono">
-              <BsPinFill className="h-5 w-5 text-primary1" />
+            <h3 className="text-md flex items-center space-x-2 font-mono font-bold">
+              <BsPinFill className="text- h-5 w-5 text-yellow-500" />
               <span>Pinned</span>
             </h3>
           </div>
