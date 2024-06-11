@@ -12,7 +12,7 @@ function App() {
     <>
       <div className="flex h-screen">
         {/* Side Navbar */}
-        <div className="w-1/6">
+        <div className="w-1/6 bg-light-body">
           <Navbar />
         </div>
         <main className="flex-1">
