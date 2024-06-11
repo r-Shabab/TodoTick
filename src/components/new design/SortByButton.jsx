@@ -47,11 +47,11 @@ export const SortByButton = () => {
           aria-orientation="vertical"
           aria-labelledby="options-menu"
         >
-          <div className="py-1" role="none">
-            {options.map((option) => (
+          <div role="none">
+            {options.map((option, index) => (
               <button
                 key={option.value}
-                className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                className={`block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${index % 2 === 1 ? "border-b" : ""}`}
                 role="menuitem"
                 onClick={() => handleOptionClick(option)}
               >
