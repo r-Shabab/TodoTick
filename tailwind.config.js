@@ -24,6 +24,7 @@ export default {
       fontFamily: {
         title: ["Titillium Web"],
         body: ["Montserrat"],
+        logo: ["Bellota"],
       },
     },
   },
