@@ -5,6 +5,8 @@ import { Searchbar } from "./Searchbar";
 import { AddButton } from "./AddButton";
 import { SortByButton } from "./SortByButton";
 import { Title } from "./Title";
+import { AddTaskModal } from "./AddTaskModal";
+
 const Dashboard = () => {
   return (
     <div className="h-screen bg-light-body px-20 py-6">
@@ -18,6 +20,7 @@ const Dashboard = () => {
         <PinnedTasks />
         <Tasklist />
       </div>
+      <AddTaskModal isVisible />
     </div>
   );
 };
