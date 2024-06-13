@@ -17,7 +17,7 @@ const AddTaskModal = ({ closeModal }) => {
       onRequestClose={closeModal}
       contentLabel="Add Task Modal"
       className="fixed inset-0 flex items-center justify-center"
-      overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+      overlayClassName="fixed inset-0 bg-black bg-opacity-25"
     >
       <div className="mx-4 w-full max-w-md rounded bg-white p-6 shadow-md">
         <h2 className="mb-4 text-xl">Add New Task</h2>
