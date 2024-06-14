@@ -5,7 +5,7 @@ import { Searchbar } from "./Searchbar";
 import { AddButton } from "./AddButton";
 import { SortByButton } from "./SortByButton";
 import { Title } from "./Title";
-import { AddTaskModal } from "./AddTaskModal";
+
 
 const Dashboard = () => {
   return (
@@ -20,7 +20,7 @@ const Dashboard = () => {
         <PinnedTasks />
         <Tasklist />
       </div>
-      <AddTaskModal isVisible />
+     
     </div>
   );
 };
