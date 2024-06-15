@@ -9,26 +9,12 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
 import { BiSort } from "react-icons/bi";
 import { useState } from "react";
+import { MobileNavbar } from "./MobileNavbar";
 export const Navbar = () => {
   const [expanded, setExpanded] = useState(true);
   return (
     <aside className="relative h-screen">
-      <nav
-        id="mobileNav"
-        className="-z-20 flex items-center justify-between bg-light-sidebar p-5 xl:hidden"
-      >
-        <div>
-          <button onClick={() => setExpanded((curr) => !curr)} className="">
-            <GoSidebarCollapse className="h-7 w-7" />
-          </button>
-        </div>
-        <div>
-          <span className="font-title text-xl font-semibold">Add Task</span>
-        </div>
-        <span>
-          <BiSort className="h-7 w-7" />
-        </span>
-      </nav>
+      <MobileNavbar/>
       <nav
         id="desktopNav"
         className={`absolute top-0 z-20 flex h-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all xl:flex ${expanded ? "w-[75%] md:w-[40%] xl:w-3/12 2xl:w-full" : "hidden xl:w-[8%] 2xl:w-[30%]"}`}
