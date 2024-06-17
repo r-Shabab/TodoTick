@@ -7,7 +7,6 @@ import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { LuKanbanSquare } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
-import { BiSort } from "react-icons/bi";
 import { useState } from "react";
 import { MobileNavbar } from "./MobileNavbar";
 export const Navbar = () => {
