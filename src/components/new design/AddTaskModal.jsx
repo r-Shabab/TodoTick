@@ -17,7 +17,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
         <input
           type="text"
           className="w-full p-2 border border-gray-300 rounded mb-4"
-          placeholder="Enter your task"
+          placeholder="Add a new task"
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />
