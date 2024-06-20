@@ -4,12 +4,12 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
   if (!show) return null;
 
   const [task, setTask] = React.useState('');
-  const [priority, setPriority] = React.useState('None');
+  const [priority, setPriority] = React.useState('Low');
 
   const handleSave = () => {
     onSave(task);
     setTask('');
-    setPriority('None');
+    setPriority('Low');
   };
 
   return (<div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
@@ -27,7 +27,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
           onChange={(e) => setPriority(e.target.value)}
           
         >
-          <option value="None">None</option>
+          
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
