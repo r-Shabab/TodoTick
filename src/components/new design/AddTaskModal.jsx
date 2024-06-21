@@ -28,9 +28,9 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
           
         >
           
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
+          <option value="Low" className='text-gray-400'>Low</option>
+          <option value="Medium" className='text-yellow-400'>Medium</option>
+          <option value="High" className='text-red-600'>High</option>
         </select>
         <div className="flex justify-end">
           <button
