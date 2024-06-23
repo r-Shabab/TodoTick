@@ -1,32 +1,19 @@
+import { useState } from "react";
 import Dashboard from "./components/new design/Dashboard";
-// import Navbar from "./components/Navbar";
 import { Navbar } from "./components/new design/Navbar";
-// import Add from "./components/Add";
-// import PinnedTasks from "./components/PinnedTasks";
-// import Tasklist from "./components/Tasklist";
-// import { Title } from "./components/Title";
 
 function App() {
-  return (
-    <>
-      <div className="flex h-full">
-        {/* Side Navbar */}
-        <div className="w-1/6 bg-light-body">
-          <Navbar />
-        </div>
-        <main className="flex-1">
-          {/* <div className="relative">
-            <PinnedTasks />
-            <Tasklist />
-            <div className="absolute left-3/4 top-[80%] lg:hidden">
-              <Add />
-            </div>
-          </div> */}
+  const [expanded, setExpanded] = useState(true);
 
-          <Dashboard />
-        </main>
-      </div>
-    </>
+  return (
+    <div className="flex h-screen overflow-hidden">
+      <Navbar expanded={expanded} setExpanded={setExpanded} />
+      <main
+        className={`flex-1 overflow-hidden transition-all duration-300 ${expanded ? "ml-[15%]" : "ml-[5%]"}`}
+      >
+        <Dashboard />
+      </main>
+    </div>
   );
 }
 

@@ -7,8 +7,8 @@ export default function PinnedTasks() {
     { id: "c-5", label: "Call a friend" },
   ];
   return (
-    <section className="-z-10 lg:pt-3.5">
-      <div className="w-full space-y-5 lg:container">
+    <section className="-z-10 w-full lg:pt-3.5">
+      <div className="w-full space-y-5">
         <div className="rounded-md bg-white p-3 shadow-md">
           <div className="w-full border-b-2 p-2">
             <h3 className="text-md flex items-center space-x-2 font-mono font-bold">

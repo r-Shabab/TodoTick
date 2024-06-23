@@ -24,7 +24,7 @@ export default function Tasklist() {
 
   return (
     <section className="lg:pt-3.5">
-      <div className="mx-auto w-full space-y-5 lg:container">
+      <div className="mx-auto w-full space-y-5">
         <div className="rounded-md bg-white p-3 shadow-md">
           <div className="w-full border-b-2 p-2">
             <h3 className="text-md flex items-center space-x-2 font-mono font-semibold">

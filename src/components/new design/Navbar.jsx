@@ -7,16 +7,20 @@ import { IoCheckmarkCircleOutline } from "react-icons/io5";
 // import { LuKanbanSquare } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
-import { useState } from "react";
+
 import { MobileNavbar } from "./MobileNavbar";
-export const Navbar = () => {
-  const [expanded, setExpanded] = useState(true);
+// eslint-disable-next-line react/prop-types
+export const Navbar = ({ expanded, setExpanded }) => {
   return (
-    <aside className="fixed h-screen w-1/6">
-      <MobileNavbar setExpanded={setExpanded} />
+    <aside
+      className={`fixed h-screen transition-all duration-300 ${
+        expanded ? "w-[15%]" : "w-[5%]"
+      }`}
+    >
+      <MobileNavbar expanded={expanded} setExpanded={setExpanded} />
       <nav
         id="desktopNav"
-        className={`absolute top-0 z-20 flex h-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all xl:flex ${expanded ? "w-[75%] md:w-[40%] xl:w-3/12 2xl:w-full" : "hidden xl:w-[8%] 2xl:w-[30%]"}`}
+        className={`absolute top-0 z-20 flex h-full w-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all xl:flex`}
       >
         <div className="space-y-4">
           <div
