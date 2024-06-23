@@ -4,7 +4,7 @@ import { GoSidebarCollapse } from "react-icons/go";
 import { FaTasks } from "react-icons/fa";
 import { BsPinAngle } from "react-icons/bs";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
-import { LuKanbanSquare } from "react-icons/lu";
+// import { LuKanbanSquare } from "react-icons/lu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
 import { useState } from "react";
@@ -13,7 +13,7 @@ export const Navbar = () => {
   const [expanded, setExpanded] = useState(true);
   return (
     <aside className="relative h-screen">
-      <MobileNavbar/>
+      <MobileNavbar />
       <nav
         id="desktopNav"
         className={`absolute top-0 z-20 flex h-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all xl:flex ${expanded ? "w-[75%] md:w-[40%] xl:w-3/12 2xl:w-full" : "hidden xl:w-[8%] 2xl:w-[30%]"}`}
@@ -82,7 +82,7 @@ export const Navbar = () => {
                   Completed
                 </span>
               </li>
-              <li
+              {/* <li
                 className={`flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-title text-xl hover:bg-light-menu-bg hover:font-semibold hover:text-add-btn ${expanded ? "justify-start" : "justify-center"}`}
               >
                 <LuKanbanSquare className="h-7 w-7" />
@@ -91,7 +91,7 @@ export const Navbar = () => {
                 >
                   Kanban Board
                 </span>
-              </li>
+              </li> */}
               <li
                 className={`flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-title text-xl hover:bg-light-menu-bg hover:font-semibold hover:text-add-btn ${expanded ? "justify-start" : "justify-center"}`}
               >
