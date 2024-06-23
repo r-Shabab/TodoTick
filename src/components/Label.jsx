@@ -9,11 +9,13 @@ const Label = ({ children }) => {
 
   return (
     <motion.label
-      className="relative break-all font-body text-base line-through lg:text-lg"
+      className={`relative break-all font-body text-base lg:text-lg ${
+        isChecked ? "line-through" : ""
+      } text-color-text`}
       htmlFor={taskId}
       animate={{
         x: isChecked ? [0, -6, 0] : [0, 6, 0],
-        color: isChecked ? "#a1a1aa" : "#27272a",
+        color: isChecked ? "#a1a1aa" : "",
         textDecorationLine: isChecked ? "line-through" : "none",
       }}
       initial={false}

@@ -1,4 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bellota:italwght@0300;0400;0700;1300;1400;1700&family=Montserrat:italwght@0100..900;1100..900&family=Titillium+Web:italwght@0200;0300;0400;0600;0700;0900;1200;1300;1400;1600;1700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root[data-theme="light"] {
+    --sidebar: 0deg 0% 100%;
+    --background: 0deg 0% 93%;
+    --tasks-bg: 0deg 0% 100%;
+    --menu: 203deg 100% 94%;
+    --primary-btn: 204deg 57% 46%;
+    --priority-btn: 284deg 28% 45%;
+    --duedate-btn: 228deg 17% 40%;
+    --edit-btn: 164deg 63% 38%;
+    --delete-btn: 5deg 71% 55%;
+    --cancel-btn: 0deg 0% 97%;
+    --color-text: 0deg 0% 2%;
+  }
+  :root[data-theme="dark"] {
+    --sidebar: 0deg 0% 2%;
+    --background: 0deg 0% 10%;
+    --tasks-bg: 0deg 0% 17%;
+    --menu: 215deg 17% 35%;
+    --primary-btn: 204deg 57% 46%;
+    --priority-btn: 284deg 28% 45%;
+    --duedate-btn: 228deg 17% 40%;
+    --edit-btn: 164deg 63% 38%;
+    --delete-btn: 5deg 71% 55%;
+    --cancel-btn: 0deg 0% 97%;
+    --color-text: 0deg 0% 100%;
+  }
+}
+
+* {
+  @apply transition-colors duration-200;
+}

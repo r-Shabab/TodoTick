@@ -12,10 +12,10 @@ export const AddButton = () => {
     <div>
       <button
         onClick={() => setShowModal(true)}
-        className={`flex items-center justify-center space-x-2 rounded-lg bg-add-btn px-5 py-3 font-title font-semibold text-white shadow-lg hover:bg-[#276792] lg:px-8 lg:py-4`}
+        className={`flex items-center justify-center space-x-2 rounded-lg bg-color-primary-btn px-5 py-3 font-title font-semibold text-white shadow-lg hover:bg-[#276792] lg:px-8 lg:py-4`}
       >
         <IoAdd className="h-5 w-5 lg:h-7 lg:w-7" />
-        <span className={`font-body text-sm lg:text-lg`}>Add Task</span>
+        <span className={`font-body text-sm lg:text-xl`}>Add Task</span>
       </button>
       <AddTaskModal
         show={showModal}

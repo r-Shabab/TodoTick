@@ -30,7 +30,7 @@ export const SortByButton = () => {
       <div>
         <button
           type="button"
-          className="inline-flex w-full items-center justify-center space-x-4 rounded-md border border-gray-300 bg-white px-4 py-2 font-body shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-add-btn lg:px-6 lg:py-2"
+          className="focus:ring-add-btn text-color-text inline-flex w-full items-center justify-center space-x-4 rounded-md bg-color-tasks-bg px-4 py-2 font-body shadow-sm hover:bg-color-menu focus:outline-none focus:ring-2 lg:px-6 lg:py-2"
           id="options-menu"
           aria-expanded="true"
           aria-haspopup="true"
