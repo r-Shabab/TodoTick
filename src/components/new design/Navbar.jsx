@@ -13,7 +13,7 @@ export const Navbar = ({ expanded, setExpanded }) => {
   return (
     <>
       <aside
-        className={`fixed h-screen transition-all duration-300 ${
+        className={`fixed h-screen pt-5 transition-all duration-300 ${
           expanded ? "w-[70%] sm:w-[50%] lg:w-[15%]" : "w-0 lg:w-[5%]"
         } z-20`}
       >
