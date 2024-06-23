@@ -2,8 +2,8 @@
 import { TaskProvider } from "./TaskContext";
 import Checkbox from "./Checkbox";
 import Label from "./Label";
-import Edit from "./Edit";
-import Delete from "./Delete";
+import Edit from "../common/buttons/Edit";
+import Delete from "../common/buttons/Delete";
 
 // eslint-disable-next-line react/prop-types
 const Task = ({ taskId, children }) => {

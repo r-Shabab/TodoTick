@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
-import { AddTaskModal } from "./AddTaskModal";
+import { AddTaskModal } from "../modals/AddTaskModal";
 export const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
 

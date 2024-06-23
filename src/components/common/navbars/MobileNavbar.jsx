@@ -1,5 +1,5 @@
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
-import { Logo } from "./Logo";
+import { Logo } from "../Logo";
 
 // eslint-disable-next-line react/prop-types
 export const MobileNavbar = ({ expanded, setExpanded }) => {

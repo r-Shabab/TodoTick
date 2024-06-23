@@ -1,9 +1,9 @@
-import PinnedTasks from "../PinnedTasks";
-import Tasklist from "../Tasklist";
-import { Searchbar } from "./Searchbar";
-import { AddButton } from "./AddButton";
-import { SortByButton } from "./SortByButton";
-import { Title } from "./Title";
+import Tasklist from "../tasks/Tasklist";
+import { Searchbar } from "../common/Searchbar";
+import { AddButton } from "../common/buttons/AddButton";
+import { SortByButton } from "../common/buttons/SortByButton";
+import { Title } from "../common/Title";
+import PinnedTasks from "../tasks/PinnedTasks";
 
 const Dashboard = () => {
   return (

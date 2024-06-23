@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Dashboard from "./components/new design/Dashboard";
-import { Navbar } from "./components/new design/Navbar";
-import { MobileNavbar } from "./components/new design/MobileNavbar";
+import Dashboard from "./components/layout/Dashboard";
+import { Navbar } from "./components/common/navbars/Navbar";
+import { MobileNavbar } from "./components/common/navbars/MobileNavbar";
 
 function App() {
   const [expanded, setExpanded] = useState(true);

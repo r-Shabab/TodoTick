@@ -1,4 +1,4 @@
-import { Logo } from "./Logo";
+import { Logo } from "../Logo";
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
 import { FaTasks } from "react-icons/fa";
