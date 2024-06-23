@@ -13,7 +13,7 @@ export const Navbar = () => {
   const [expanded, setExpanded] = useState(true);
   return (
     <aside className="relative h-screen">
-      <MobileNavbar />
+      <MobileNavbar setExpanded={setExpanded} />
       <nav
         id="desktopNav"
         className={`absolute top-0 z-20 flex h-full flex-col justify-between overflow-hidden bg-light-sidebar px-6 font-title text-xl shadow-md transition-all xl:flex ${expanded ? "w-[75%] md:w-[40%] xl:w-3/12 2xl:w-full" : "hidden xl:w-[8%] 2xl:w-[30%]"}`}
