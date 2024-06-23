@@ -9,7 +9,7 @@ import { Navbar } from "./components/new design/Navbar";
 function App() {
   return (
     <>
-      <div className="flex h-screen">
+      <div className="flex h-full">
         {/* Side Navbar */}
         <div className="w-1/6 bg-light-body">
           <Navbar />

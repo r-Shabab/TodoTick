@@ -11,6 +11,15 @@ export default function Tasklist() {
     { id: "c-3", label: "Learn JS" },
     { id: "c-4", label: "Dinner with family" },
     { id: "c-5", label: "Call a friend" },
+    {
+      id: "c-1",
+      label:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, tempora.",
+    },
+    { id: "c-2", label: "Go outside" },
+    { id: "c-3", label: "Learn JS" },
+    { id: "c-4", label: "Dinner with family" },
+    { id: "c-5", label: "Call a friend" },
   ];
 
   return (

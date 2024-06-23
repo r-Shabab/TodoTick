@@ -12,7 +12,7 @@ import { MobileNavbar } from "./MobileNavbar";
 export const Navbar = () => {
   const [expanded, setExpanded] = useState(true);
   return (
-    <aside className="relative h-screen">
+    <aside className="fixed h-screen w-1/6">
       <MobileNavbar setExpanded={setExpanded} />
       <nav
         id="desktopNav"
