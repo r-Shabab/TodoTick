@@ -30,13 +30,13 @@ export const SortByButton = () => {
       <div>
         <button
           type="button"
-          className="inline-flex w-full items-center justify-center space-x-4 rounded-md border border-gray-300 bg-white px-6 py-2 font-body shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-add-btn"
+          className="inline-flex w-full items-center justify-center space-x-4 rounded-md border border-gray-300 bg-white px-4 py-2 font-body shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-add-btn lg:px-6 lg:py-2"
           id="options-menu"
           aria-expanded="true"
           aria-haspopup="true"
           onClick={toggleDropdown}
         >
-          <span className="text-md">{selectedOption}</span>
+          <span className="lg:text-md text-sm">{selectedOption}</span>
           <span>{isOpen ? <FaAngleUp /> : <FaAngleDown />}</span>
         </button>
       </div>

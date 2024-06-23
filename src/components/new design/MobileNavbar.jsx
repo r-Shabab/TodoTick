@@ -1,28 +1,23 @@
 import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
-import { BiSort } from "react-icons/bi";
+import { Logo } from "./Logo";
 
 // eslint-disable-next-line react/prop-types
 export const MobileNavbar = ({ expanded, setExpanded }) => {
   return (
     <nav
       id="mobileNav"
-      className="z-30 flex items-center justify-between bg-light-sidebar p-5 xl:hidden"
+      className="fixed left-0 right-0 top-0 z-30 flex h-20 w-full items-center justify-between bg-light-sidebar p-5 shadow-md xl:hidden"
     >
-      <div>
-        <button onClick={() => setExpanded((curr) => !curr)} className="">
-          {expanded ? (
-            <GoSidebarCollapse className="h-7 w-7" />
-          ) : (
-            <GoSidebarExpand className="h-7 w-7" />
-          )}
-        </button>
+      <button onClick={() => setExpanded((curr) => !curr)} className="mr-auto">
+        {expanded ? (
+          <GoSidebarExpand className="h-7 w-7" />
+        ) : (
+          <GoSidebarCollapse className="h-7 w-7" />
+        )}
+      </button>
+      <div className="absolute left-1/2 -translate-x-1/2 transform">
+        <Logo />
       </div>
-      <div>
-        <span className="font-title text-xl font-semibold">Add Task</span>
-      </div>
-      <span>
-        <BiSort className="h-7 w-7" />
-      </span>
     </nav>
   );
 };

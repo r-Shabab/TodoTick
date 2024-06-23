@@ -27,8 +27,8 @@ export default function Tasklist() {
       <div className="mx-auto w-full space-y-5">
         <div className="rounded-md bg-white p-3 shadow-md">
           <div className="w-full border-b-2 p-2">
-            <h3 className="text-md flex items-center space-x-2 font-mono font-semibold">
-              <LuListTodo className="h-6 w-6 text-add-btn" />
+            <h3 className="lg:text-md flex items-center space-x-2 font-mono text-sm font-semibold">
+              <LuListTodo className="h-5 w-5 text-add-btn lg:h-6 lg:w-6" />
               <span>Todos</span>
             </h3>
           </div>

@@ -7,11 +7,11 @@ import { Title } from "./Title";
 
 const Dashboard = () => {
   return (
-    <div className="h-full overflow-y-auto bg-light-body">
-      <div className="px-20 py-6 pb-10">
-        <div className="mx-auto w-5/6 space-y-6">
+    <div className="h-full overflow-y-auto bg-light-body pt-20 xl:pt-0">
+      <div className="px-6 py-6 lg:px-20 lg:py-6">
+        <div className="mx-auto w-full space-y-6 lg:w-5/6">
           <Searchbar />
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-2 lg:px-0">
             <Title />
             <AddButton />
           </div>

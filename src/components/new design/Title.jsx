@@ -9,8 +9,13 @@ export const Title = () => {
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
   return (
     <div>
-      <h3 className="font-title text-3xl font-semibold">All Tasks</h3>
-      <p className="text-md font-title text-gray-400"> {formattedDate} </p>
+      <h3 className="font-title text-2xl font-semibold lg:text-3xl">
+        All Tasks
+      </h3>
+      <p className="lg:text-md font-title text-sm text-gray-400">
+        {" "}
+        {formattedDate}{" "}
+      </p>
     </div>
   );
 };
