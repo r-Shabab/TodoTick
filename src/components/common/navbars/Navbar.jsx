@@ -14,7 +14,6 @@ import { useEffect, useState } from "react";
 export const Navbar = ({ expanded, setExpanded }) => {
   const [theme, setTheme] = useState("light");
   useEffect(() => {
-    // Set the initial theme based on the data-theme attribute
     const initialTheme =
       document.documentElement.getAttribute("data-theme") || "light";
     setTheme(initialTheme);
@@ -55,10 +54,10 @@ export const Navbar = ({ expanded, setExpanded }) => {
               >
                 {expanded ? (
                   <>
-                    <GoSidebarExpand className="text-color-text h-7 w-7" />
+                    <GoSidebarExpand className="h-7 w-7 text-color-text" />
                   </>
                 ) : (
-                  <GoSidebarCollapse className="text-color-text h-7 w-7" />
+                  <GoSidebarCollapse className="h-7 w-7 text-color-text" />
                 )}
               </button>
             </div>
@@ -67,14 +66,14 @@ export const Navbar = ({ expanded, setExpanded }) => {
                 className={`overflow-hidden rounded-lg transition-all ${expanded ? "w-full p-2" : ""}`}
               >
                 <h3
-                  className={`text-color-text font-title text-lg font-semibold underline underline-offset-2 ${expanded ? "" : "text-center"}`}
+                  className={`font-title text-lg font-semibold text-color-text underline underline-offset-2 ${expanded ? "" : "text-center"}`}
                 >
                   MENU
                 </h3>
               </div>
               <ul className="space-y-2 rounded-lg">
                 <li
-                  className={`text-color-text hover:text-color-text flex cursor-pointer items-center space-x-3 rounded-lg bg-color-menu p-3 font-title text-xl hover:bg-color-background hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`flex cursor-pointer items-center space-x-3 rounded-lg bg-color-menu p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold hover:text-color-text ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <FaTasks className="h-7 w-7" />
                   <span
@@ -84,7 +83,7 @@ export const Navbar = ({ expanded, setExpanded }) => {
                   </span>
                 </li>
                 <li
-                  className={`hover:text-add-btn text-color-text flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <BsPinAngle className="h-7 w-7" />
                   <span
@@ -94,7 +93,7 @@ export const Navbar = ({ expanded, setExpanded }) => {
                   </span>
                 </li>
                 <li
-                  className={`hover:text-add-btn text-color-text flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <IoCheckmarkCircleOutline className="h-7 w-7" />
                   <span
@@ -114,7 +113,7 @@ export const Navbar = ({ expanded, setExpanded }) => {
                 </span>
                 </li> */}
                 <li
-                  className={`hover:text-add-btn text-color-text flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <AiOutlineDelete className="h-7 w-7" />
                   <span
@@ -128,7 +127,7 @@ export const Navbar = ({ expanded, setExpanded }) => {
           </div>
           <div className="flex justify-center pb-10">
             <button
-              className={`text-color-text flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 hover:bg-color-menu ${expanded ? "px-10 py-5" : "w-full"}`}
+              className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu ${expanded ? "px-10 py-5" : "w-full"}`}
               onClick={toggleTheme}
             >
               {theme === "light" ? (
