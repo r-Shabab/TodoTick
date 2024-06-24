@@ -11,7 +11,7 @@ import { FiMoon } from "react-icons/fi";
 import { useEffect, useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export const Navbar = ({ expanded, setExpanded }) => {
+const DesktopNavbar = ({ expanded, setExpanded }) => {
   const [theme, setTheme] = useState("light");
   useEffect(() => {
     const initialTheme =
@@ -147,3 +147,5 @@ export const Navbar = ({ expanded, setExpanded }) => {
     </>
   );
 };
+
+export default DesktopNavbar;

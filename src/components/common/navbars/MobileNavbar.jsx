@@ -2,7 +2,7 @@ import { GoSidebarCollapse, GoSidebarExpand } from "react-icons/go";
 import { Logo } from "../Logo";
 
 // eslint-disable-next-line react/prop-types
-export const MobileNavbar = ({ expanded, setExpanded }) => {
+const MobileNavbar = ({ expanded, setExpanded }) => {
   return (
     <nav
       id="mobileNav"
@@ -10,9 +10,9 @@ export const MobileNavbar = ({ expanded, setExpanded }) => {
     >
       <button onClick={() => setExpanded((curr) => !curr)} className="mr-auto">
         {expanded ? (
-          <GoSidebarExpand className="text-color-text h-7 w-7" />
+          <GoSidebarExpand className="h-7 w-7 text-color-text" />
         ) : (
-          <GoSidebarCollapse className="text-color-text h-7 w-7" />
+          <GoSidebarCollapse className="h-7 w-7 text-color-text" />
         )}
       </button>
       <div className="absolute left-1/2 -translate-x-1/2 transform">
@@ -21,3 +21,5 @@ export const MobileNavbar = ({ expanded, setExpanded }) => {
     </nav>
   );
 };
+
+export default MobileNavbar;
