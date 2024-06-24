@@ -1,6 +1,7 @@
-import Task from "./Task";
+import TaskLayout from "./TaskLayout";
 import { LuListTodo } from "react-icons/lu";
-export default function Tasklist() {
+
+const IncompleteTasks = () => {
   const tasks = [
     {
       id: "c-1",
@@ -26,7 +27,7 @@ export default function Tasklist() {
     <section className="lg:pt-3.5">
       <div className="mx-auto w-full space-y-5">
         <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
-          <div className="border-color-text/50 w-full border-b-2 p-2">
+          <div className="w-full border-b-2 border-color-text/50 p-2">
             <h3 className="flex items-center space-x-2 font-mono text-sm font-semibold lg:text-base">
               <LuListTodo className="h-5 w-5 text-color-primary-btn lg:h-6 lg:w-6" />
               <span className="text-color-text">Todos</span>
@@ -39,7 +40,7 @@ export default function Tasklist() {
                 className="w-full border-b border-gray-400 border-opacity-20 py-1 last:border-b-0"
               >
                 <div className="flex items-center py-4">
-                  <Task id={task.id}>{task.label}</Task>
+                  <TaskLayout id={task.id}>{task.label}</TaskLayout>
                 </div>
               </li>
             ))}
@@ -48,4 +49,6 @@ export default function Tasklist() {
       </div>
     </section>
   );
-}
+};
+
+export default IncompleteTasks;

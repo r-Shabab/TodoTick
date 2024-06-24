@@ -1,6 +1,7 @@
-import Task from "./Task";
+import TaskLayout from "./TaskLayout";
 import { BsPinFill } from "react-icons/bs";
-export default function PinnedTasks() {
+
+const PinnedTasks = () => {
   const tasks = [
     { id: "c-2", label: "Go outside" },
     { id: "c-3", label: "Learn JS" },
@@ -10,7 +11,7 @@ export default function PinnedTasks() {
     <section className="-z-10 w-full lg:pt-3.5">
       <div className="w-full space-y-5">
         <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
-          <div className="border-color-text/50 w-full border-b-2 p-2">
+          <div className="w-full border-b-2 border-color-text/50 p-2">
             <h3 className="flex items-center space-x-2 font-mono text-sm font-bold lg:text-base">
               <BsPinFill className="h-4 w-4 text-yellow-500 lg:h-5 lg:w-5" />
               <span className="text-color-text">Pinned</span>
@@ -23,7 +24,7 @@ export default function PinnedTasks() {
                 className="w-full border-b border-gray-400 border-opacity-20 py-1 last:border-b-0"
               >
                 <div className="bg flex items-center py-4">
-                  <Task id={task.id}>{task.label}</Task>
+                  <TaskLayout id={task.id}>{task.label}</TaskLayout>
                 </div>
               </li>
             ))}
@@ -32,4 +33,6 @@ export default function PinnedTasks() {
       </div>
     </section>
   );
-}
+};
+
+export default PinnedTasks;

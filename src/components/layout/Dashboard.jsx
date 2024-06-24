@@ -1,4 +1,4 @@
-import Tasklist from "../tasks/Tasklist";
+import IncompleteTasks from "../tasks/IncompleteTasks";
 import { Searchbar } from "../common/Searchbar";
 import { AddButton } from "../common/buttons/AddButton";
 import { SortByButton } from "../common/buttons/SortByButton";
@@ -17,7 +17,7 @@ const Dashboard = () => {
           </div>
           <SortByButton />
           <PinnedTasks />
-          <Tasklist />
+          <IncompleteTasks />
         </div>
       </div>
     </div>

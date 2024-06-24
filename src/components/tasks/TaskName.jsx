@@ -4,7 +4,7 @@ import { useContext } from "react";
 import TaskContext from "./TaskContext";
 
 // eslint-disable-next-line react/prop-types
-const Label = ({ children }) => {
+const TaskName = ({ children }) => {
   const { taskId, isChecked } = useContext(TaskContext);
 
   return (
@@ -29,4 +29,4 @@ const Label = ({ children }) => {
   );
 };
 
-export default Label;
+export default TaskName;

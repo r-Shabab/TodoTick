@@ -20,7 +20,7 @@ const tickVariants = {
   },
 };
 
-const Checkbox = () => {
+const TaskCheckbox = () => {
   const { taskId, isChecked, setIsChecked } = useContext(TaskContext);
 
   const handleCheckboxChange = () => {
@@ -57,4 +57,4 @@ const Checkbox = () => {
     </div>
   );
 };
-export default Checkbox;
+export default TaskCheckbox;
