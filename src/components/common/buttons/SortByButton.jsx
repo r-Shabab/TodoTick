@@ -37,7 +37,7 @@ const SortByButton = () => {
           aria-haspopup="true"
           onClick={toggleDropdown}
         >
-          <span className="text-sm lg:text-base">{selectedOption}</span>
+          <span className="text-sm lg:text-lg">{selectedOption}</span>
           <span>{isOpen ? <FaAngleUp /> : <FaAngleDown />}</span>
         </button>
       </div>
