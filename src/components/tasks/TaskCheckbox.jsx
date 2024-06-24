@@ -23,7 +23,7 @@ const tickVariants = {
 const TaskCheckbox = () => {
   const { taskId, isChecked, setIsChecked } = useContext(TaskContext);
 
-  const handleCheckboxChange = () => {
+  const handleCheckbox = () => {
     setIsChecked(!isChecked);
   };
   return (
@@ -31,7 +31,7 @@ const TaskCheckbox = () => {
       <input
         type="checkbox"
         className="relative h-5 w-5 cursor-pointer appearance-none rounded-full border-2 border-gray-400 bg-gray-100 transition-all duration-500 checked:border-[#276792] checked:bg-color-primary-btn lg:h-6 lg:w-6"
-        onChange={handleCheckboxChange}
+        onChange={handleCheckbox}
         id={taskId}
         checked={isChecked}
       />
