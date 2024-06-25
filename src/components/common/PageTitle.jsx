@@ -13,8 +13,7 @@ export default function PageTitle() {
         All Tasks
       </h3>
       <p className="font-title text-sm text-gray-400 lg:text-base">
-        {" "}
-        {formattedDate}{" "}
+        {formattedDate}
       </p>
     </div>
   );
