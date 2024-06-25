@@ -83,7 +83,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   </span>
                 </li>
                 <li
-                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <BsPinAngle className="h-7 w-7" />
                   <span
@@ -93,7 +93,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   </span>
                 </li>
                 <li
-                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <IoCheckmarkCircleOutline className="h-7 w-7" />
                   <span
@@ -113,7 +113,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                 </span>
                 </li> */}
                 <li
-                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg bg-color-background p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-title text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <AiOutlineDelete className="h-7 w-7" />
                   <span

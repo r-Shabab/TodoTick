@@ -3,13 +3,13 @@ import { IoAdd } from "react-icons/io5";
 // eslint-disable-next-line react/prop-types
 export const AddTaskModal = ({ show, onClose, onSave }) => {
   const [task, setTask] = useState("");
-  const [priority, setPriority] = useState("Low");
+  const [priority, setPriority] = useState("");
   if (!show) return null;
 
   const handleSave = () => {
     onSave(task);
     setTask("");
-    setPriority("Low");
+    setPriority("");
   };
 
   return (
@@ -43,6 +43,9 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
           >
+            <option selected value="Null" className="text-gray-400">
+              Select Priority
+            </option>
             <option value="Low" className="text-gray-400">
               Low
             </option>
