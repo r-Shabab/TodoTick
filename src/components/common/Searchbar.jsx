@@ -10,7 +10,7 @@ const Searchbar = () => {
           <input
             type="search"
             id="default-search"
-            className="text-md block h-16 w-full rounded-lg border-color-text/30 bg-color-tasks-bg px-16 py-8 font-body text-color-text shadow-md focus:border-color-primary-btn focus:ring-color-primary-btn lg:text-lg"
+            className="text-md font-todo block h-16 w-full rounded-lg border-color-text/30 bg-color-tasks-bg px-16 py-8 text-color-text shadow-md focus:border-color-primary-btn focus:ring-color-primary-btn lg:text-lg"
             placeholder="Search"
             required
           />

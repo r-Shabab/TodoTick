@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bellota:italwght@0300;0400;0700;1300;1400;1700&family=Montserrat:italwght@0100..900;1100..900&family=Titillium+Web:italwght@0200;0300;0400;0600;0700;0900;1200;1300;1400;1600;1700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -12,7 +12,7 @@ const PinnedTasks = () => {
       <div className="w-full space-y-5">
         <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
           <div className="w-full border-b-2 border-color-text/50 p-2">
-            <h3 className="flex items-center space-x-2 font-mono text-sm font-bold lg:text-base">
+            <h3 className="flex items-center space-x-2 font-title text-sm font-medium lg:text-base">
               <BsPinFill className="h-4 w-4 text-yellow-500 lg:h-5 lg:w-5" />
               <span className="text-color-text">Pinned</span>
             </h3>

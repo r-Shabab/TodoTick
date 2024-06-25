@@ -28,7 +28,7 @@ const IncompleteTasks = () => {
       <div className="mx-auto w-full space-y-5">
         <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
           <div className="w-full border-b-2 border-color-text/50 p-2">
-            <h3 className="flex items-center space-x-2 font-mono text-sm font-semibold lg:text-base">
+            <h3 className="flex items-center space-x-2 font-title text-sm font-medium lg:text-base">
               <LuListTodo className="h-5 w-5 text-color-primary-btn lg:h-6 lg:w-6" />
               <span className="text-color-text">Todos</span>
             </h3>
