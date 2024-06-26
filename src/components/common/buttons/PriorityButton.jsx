@@ -16,26 +16,26 @@ export const PriorityDropdown = ({ priority, setPriority }) => {
     <div className="relative w-1/5">
       <button
         type="button"
-        className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-3 text-left text-gray-800 focus:border-blue-500 focus:ring-blue-500"
+        className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-color-background px-4 py-3 text-left text-gray-800 focus:border-blue-500 focus:ring-blue-500"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="flex items-center">
+        <span className="flex items-center text-color-text">
           <HiFlag className={`mr-2 h-5 w-5 ${priority.color}`} />
           {priority.label || "Select Priority"}
         </span>
         {isOpen ? (
-          <HiOutlineChevronUp />
+          <HiOutlineChevronUp className="h-5 w-5 text-color-text" />
         ) : (
-          <HiOutlineChevronDown className="h-5 w-5 text-gray-600" />
+          <HiOutlineChevronDown className="h-5 w-5 text-color-text" />
         )}
       </button>
       {isOpen && (
-        <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
+        <div className="absolute z-10 mt-2 w-full rounded-lg border border-color-background bg-color-background shadow-lg">
           {priorities.map((item) => (
             <button
               key={item.value}
               type="button"
-              className="flex w-full items-center px-4 py-3 text-gray-800 hover:bg-gray-100"
+              className="flex w-full items-center px-4 py-3 text-color-text hover:bg-color-menu"
               onClick={() => {
                 setPriority(item);
                 setIsOpen(false);

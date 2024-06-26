@@ -27,16 +27,16 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-600 bg-opacity-50">
-      <div className="flex w-1/3 flex-col space-y-6 rounded-lg bg-white p-7 shadow-lg">
+      <div className="flex w-1/3 flex-col space-y-6 rounded-lg bg-color-sidebar p-7 shadow-lg">
         <div>
           <form className="mx-auto w-full">
             <div className="relative flex items-center">
-              <div className="absolute left-4 lg:left-2">
-                <IoAdd className="h-8 w-8 text-gray-600 lg:h-12 lg:w-12" />
+              <div className="absolute left-4">
+                <IoAdd className="h-8 w-8 text-gray-600 lg:h-12 lg:w-8" />
               </div>
               <input
                 type="text"
-                className="block h-16 w-full rounded-lg border border-gray-300 bg-gray-100 py-8 pl-16 pr-4 text-base text-gray-800 shadow-md focus:border-blue-500 focus:ring-blue-500 lg:text-xl"
+                className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-8 pl-16 pr-4 text-base text-gray-800 shadow-md focus:border-blue-500 focus:ring-blue-500 lg:text-xl"
                 placeholder="Add New Task..."
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
@@ -48,15 +48,15 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
         <div>
           <PriorityDropdown priority={priority} setPriority={setPriority} />
         </div>
-        <div className="flex justify-end space-x-2">
+        <div className="flex justify-end space-x-5">
           <button
-            className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
+            className="rounded bg-red-500 px-6 py-2 font-button text-white hover:bg-red-600"
             onClick={handleCancel}
           >
             Cancel
           </button>
           <button
-            className="rounded bg-blue-500 px-5 py-3 text-white hover:bg-blue-600"
+            className="rounded bg-blue-500 px-6 py-2 font-button text-white hover:bg-blue-600"
             onClick={handleSave}
           >
             Add
