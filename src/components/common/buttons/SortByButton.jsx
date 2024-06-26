@@ -31,7 +31,7 @@ const SortByButton = () => {
       <div>
         <button
           type="button"
-          className="focus:ring-add-btn font-button inline-flex w-full items-center justify-center space-x-4 rounded-md bg-color-tasks-bg px-4 py-2 text-color-text shadow-sm hover:bg-color-menu focus:outline-none focus:ring-2 lg:px-6 lg:py-2"
+          className="focus:ring-add-btn inline-flex w-full items-center justify-center space-x-4 rounded-md bg-color-tasks-bg px-4 py-2 font-button text-color-text shadow-sm hover:bg-color-menu focus:outline-none focus:ring-2 lg:px-6 lg:py-2"
           id="options-menu"
           aria-expanded="true"
           aria-haspopup="true"
@@ -43,7 +43,7 @@ const SortByButton = () => {
       </div>
       {isOpen && (
         <div
-          className="absolute left-0 z-40 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute left-0 z-40 mt-2 w-56 origin-top-left rounded-md bg-color-tasks-bg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
@@ -52,7 +52,7 @@ const SortByButton = () => {
             {options.map((option, index) => (
               <button
                 key={option.value}
-                className={`block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 ${index % 2 === 1 ? "border-b" : ""}`}
+                className={`block w-full px-4 py-2 text-left text-sm text-color-text hover:bg-color-menu ${index % 2 === 1 ? "border-b border-color-background" : ""}`}
                 role="menuitem"
                 onClick={() => handleOptionClick(option)}
               >

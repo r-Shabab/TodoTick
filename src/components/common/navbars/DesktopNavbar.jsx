@@ -34,7 +34,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
       >
         <nav
           id="desktopNav"
-          className={`font-nav flex h-full w-full flex-col justify-between bg-color-sidebar px-6 text-xl shadow-md transition-transform ${
+          className={`flex h-full w-full flex-col justify-between bg-color-sidebar px-6 py-6 font-nav text-xl shadow-md transition-transform ${
             expanded ? "translate-x-0" : "-translate-x-full"
           } xl:translate-x-0`}
         >
@@ -66,14 +66,14 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                 className={`overflow-hidden rounded-lg transition-all ${expanded ? "w-full p-2" : ""}`}
               >
                 <h3
-                  className={`font-nav text-lg font-semibold text-color-text underline underline-offset-2 ${expanded ? "" : "text-center"}`}
+                  className={`font-nav text-lg text-color-text underline underline-offset-2 ${expanded ? "" : "text-center"}`}
                 >
                   MENU
                 </h3>
               </div>
               <ul className="space-y-2 rounded-lg">
                 <li
-                  className={`font-nav flex cursor-pointer items-center space-x-3 rounded-lg bg-color-menu p-3 text-xl text-color-text hover:bg-color-menu hover:font-semibold hover:text-color-text ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`flex cursor-pointer items-center space-x-3 rounded-lg bg-color-menu p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold hover:text-color-text lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <FaTasks className="h-7 w-7" />
                   <span
@@ -83,7 +83,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   </span>
                 </li>
                 <li
-                  className={`hover:text-add-btn font-nav flex cursor-pointer items-center space-x-3 rounded-lg p-3 text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <BsPinAngle className="h-7 w-7" />
                   <span
@@ -93,7 +93,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   </span>
                 </li>
                 <li
-                  className={`hover:text-add-btn font-nav flex cursor-pointer items-center space-x-3 rounded-lg p-3 text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <IoCheckmarkCircleOutline className="h-7 w-7" />
                   <span
@@ -113,7 +113,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                 </span>
                 </li> */}
                 <li
-                  className={`hover:text-add-btn font-nav flex cursor-pointer items-center space-x-3 rounded-lg p-3 text-xl text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "justify-start" : "justify-center"}`}
+                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
                 >
                   <AiOutlineDelete className="h-7 w-7" />
                   <span
@@ -127,7 +127,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
           </div>
           <div className="flex justify-center pb-10">
             <button
-              className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu ${expanded ? "px-10 py-5" : "w-full"}`}
+              className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "px-10 py-5" : "w-full"}`}
               onClick={toggleTheme}
             >
               {theme === "light" ? (
@@ -136,7 +136,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                 <FiMoon className="h-7 w-7" />
               )}
               <span
-                className={`font-button overflow-hidden text-xl transition-all ${expanded ? "w-full" : "hidden"}`}
+                className={`overflow-hidden font-button text-xl transition-all ${expanded ? "w-full" : "hidden"}`}
               >
                 {theme === "light" ? "Light" : "Dark"}
               </span>

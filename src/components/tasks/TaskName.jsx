@@ -9,7 +9,7 @@ const TaskName = ({ children }) => {
 
   return (
     <motion.label
-      className={`font-todo relative break-all text-base lg:text-lg ${
+      className={`relative break-all font-todo font-light lg:text-lg ${
         isChecked ? "line-through" : ""
       } text-color-text`}
       htmlFor={taskId}
