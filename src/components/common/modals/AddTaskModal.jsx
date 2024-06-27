@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import { PriorityDropdown } from "../buttons/PriorityButton";
+import DateButton from "../buttons/DateButton";
 
 export const AddTaskModal = ({ show, onClose, onSave }) => {
+  const [dueDate, setDueDate] = useState("");
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState({
     label: "Priority",
@@ -23,6 +25,10 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
     setTask("");
     setPriority({ label: "Priority", value: "", color: "" });
     onClose();
+  };
+
+  const handleDateChange = (date) => {
+    setDueDate(date);
   };
 
   return (
@@ -45,8 +51,11 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
             </div>
           </form>
         </div>
-        <div>
+        <div className="flex">
           <PriorityDropdown priority={priority} setPriority={setPriority} />
+          <DateButton onDateChange={handleDateChange}>
+            {dueDate && <p>Due Date: {new Date(dueDate).toDateString()}</p>}
+          </DateButton>
         </div>
         <div className="flex justify-end space-x-5">
           <button
