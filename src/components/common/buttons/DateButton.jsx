@@ -20,7 +20,7 @@ const DateButton = ({ onDateChange }) => {
         id="date"
         value={selectedDate}
         onChange={handleDateChange}
-        className="rounded-lg px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-color-primary-btn"
+        className="rounded-lg bg-color-background px-4 py-3 text-color-text shadow-sm focus:outline-none focus:ring-2 focus:ring-color-primary-btn"
       />
     </div>
   );

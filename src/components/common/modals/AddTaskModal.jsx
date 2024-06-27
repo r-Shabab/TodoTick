@@ -51,7 +51,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
             </div>
           </form>
         </div>
-        <div className="flex">
+        <div className="flex items-center space-x-4">
           <PriorityDropdown priority={priority} setPriority={setPriority} />
           <DateButton onDateChange={handleDateChange}>
             {dueDate && <p>Due Date: {new Date(dueDate).toDateString()}</p>}
@@ -59,13 +59,13 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
         </div>
         <div className="flex justify-end space-x-5">
           <button
-            className="rounded bg-red-500 px-6 py-2 font-button text-white hover:bg-red-600"
+            className="rounded bg-white/30 px-6 py-2 font-button text-lg text-color-text hover:bg-white/20"
             onClick={handleCancel}
           >
             Cancel
           </button>
           <button
-            className="rounded bg-blue-500 px-6 py-2 font-button text-white hover:bg-blue-600"
+            className="rounded bg-color-primary-btn px-10 py-3 font-button text-lg text-white hover:bg-blue-600"
             onClick={handleSave}
           >
             Add
