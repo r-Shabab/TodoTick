@@ -35,7 +35,7 @@ export const PriorityDropdown = ({ priority, setPriority }) => {
             <button
               key={item.value}
               type="button"
-              className="flex w-full items-center px-4 py-3 text-color-text hover:bg-color-menu"
+              className="flex w-full items-center px-4 py-3 text-color-text hover:bg-color-primary-btn hover:text-white"
               onClick={() => {
                 setPriority(item);
                 setIsOpen(false);
