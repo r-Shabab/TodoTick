@@ -68,7 +68,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
             className="rounded bg-color-primary-btn px-10 py-3 font-button text-lg text-white hover:bg-blue-600"
             onClick={handleSave}
           >
-            Add
+            Add Task
           </button>
         </div>
       </div>
