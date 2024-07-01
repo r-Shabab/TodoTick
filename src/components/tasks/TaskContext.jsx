@@ -4,10 +4,6 @@ const TaskContext = createContext({
   taskId: "",
   isChecked: false,
   setIsChecked: () => {},
-  // priority: null,
-  // setPriority: () => {},
-  // dueDate: null,
-  // setDueDate: () => {},
 });
 
 // eslint-disable-next-line react/prop-types

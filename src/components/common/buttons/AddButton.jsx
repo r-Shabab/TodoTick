@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoAdd } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa6";
 import { AddTaskModal } from "../modals/AddTaskModal";
 const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +14,7 @@ const AddButton = () => {
         onClick={() => setShowModal(true)}
         className={`flex items-center justify-center space-x-2 rounded-lg bg-color-primary-btn px-5 py-3 font-button font-semibold text-white shadow-lg hover:bg-[#276792] lg:px-10 lg:py-5`}
       >
-        <IoAdd className="h-5 w-5 lg:h-7 lg:w-7" />
+        <FaPlus className="h-5 w-5 lg:h-7 lg:w-7" />
         <span className={`text-sm lg:text-xl`}>Add Task</span>
       </button>
       <AddTaskModal
