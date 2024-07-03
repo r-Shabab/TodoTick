@@ -4,10 +4,6 @@ import { AddTaskModal } from "../modals/AddTaskModal";
 const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleSave = () => {
-    setShowModal(false);
-  };
-
   return (
     <div>
       <button
@@ -17,11 +13,7 @@ const AddButton = () => {
         <FaPlus className="h-5 w-5 lg:h-7 lg:w-7" />
         <span className={`text-sm lg:text-xl`}>Add Task</span>
       </button>
-      <AddTaskModal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-        onSave={handleSave}
-      />
+      <AddTaskModal show={showModal} onClose={() => setShowModal(false)} />
     </div>
   );
 };

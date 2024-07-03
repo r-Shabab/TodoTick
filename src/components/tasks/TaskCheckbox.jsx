@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import TaskContext from "../contexts/TaskContext";
@@ -20,11 +21,11 @@ const tickVariants = {
   },
 };
 
-const TaskCheckbox = () => {
-  const { taskId, isChecked, setIsChecked } = useContext(TaskContext);
+const TaskCheckbox = ({ taskId, isChecked }) => {
+  const { toggleTaskCompletion } = useContext(TaskContext);
 
   const handleCheckbox = () => {
-    setIsChecked(!isChecked);
+    toggleTaskCompletion(taskId);
   };
   return (
     <div className="relative flex items-center">

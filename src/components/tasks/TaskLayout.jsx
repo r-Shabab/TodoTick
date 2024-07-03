@@ -6,12 +6,12 @@ import TaskName from "./TaskName";
 // import DeleteButton from "../common/buttons/DeleteButton";
 
 // eslint-disable-next-line react/prop-types
-const TaskLayout = ({ taskId, children }) => {
+const TaskLayout = ({ taskId, children, isChecked }) => {
   return (
     <div className="flex w-full items-center space-x-2">
       <TaskProvider taskId={taskId}>
         <div className="relative flex items-center">
-          <TaskCheckbox />
+          <TaskCheckbox taskId={taskId} isChecked={isChecked} />
         </div>
 
         <div className="group relative flex w-full items-center justify-between">

@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 // AddTaskModal.jsx
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import { PriorityDropdown } from "../buttons/PriorityButton";
 import DateButton from "../buttons/DateButton";
+import TaskContext from "../../contexts/TaskContext";
 
-export const AddTaskModal = ({ show, onClose, onSave }) => {
+export const AddTaskModal = ({ show, onClose }) => {
+  const { addTask } = useContext(TaskContext);
   const [dueDate, setDueDate] = useState("");
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState({
@@ -17,18 +19,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
   if (!show) return null;
 
   const handleSave = () => {
-    const newTask = {
-      id: Date.now(),
-      task,
-      priority: priority.value,
-      dueDate,
-    };
-
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks.push(newTask);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-
-    onSave(newTask);
+    addTask({ id: Date.now(), task, priority: priority.value, dueDate });
     setTask("");
     setPriority({ label: "Priority", value: "", color: "" });
     setDueDate("");
