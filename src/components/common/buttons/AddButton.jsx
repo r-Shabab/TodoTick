@@ -8,6 +8,7 @@ const AddButton = () => {
     console.log("Task saved:", task);
     setShowModal(false);
   };
+
   return (
     <div>
       <button

@@ -1,9 +1,10 @@
-import IncompleteTasks from "../tasks/IncompleteTasks";
+// import IncompleteTasks from "../tasks/IncompleteTasks";
 import Searchbar from "../common/Searchbar";
 import AddButton from "../common/buttons/AddButton";
 import SortByButton from "../common/buttons/SortByButton";
 import PageTitle from "../common/PageTitle";
-import PinnedTasks from "../tasks/PinnedTasks";
+// import PinnedTasks from "../tasks/PinnedTasks";
+import AllTasksPage from "../pages/AllTasksPage";
 
 const Dashboard = () => {
   return (
@@ -16,8 +17,8 @@ const Dashboard = () => {
             <AddButton />
           </div>
           <SortByButton />
-          <PinnedTasks />
-          <IncompleteTasks />
+
+          <AllTasksPage />
         </div>
       </div>
     </div>

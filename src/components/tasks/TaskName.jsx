@@ -1,7 +1,7 @@
 // Label.jsx
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import TaskContext from "./TaskContext";
+import TaskContext from "../contexts/TaskContext";
 
 // eslint-disable-next-line react/prop-types
 const TaskName = ({ children }) => {

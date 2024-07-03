@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+// AddTaskModal.jsx
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import { PriorityDropdown } from "../buttons/PriorityButton";
@@ -16,14 +17,28 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
   if (!show) return null;
 
   const handleSave = () => {
-    onSave({ task, priority: priority.value });
+    const newTask = {
+      id: Date.now(),
+      task,
+      priority: priority.value,
+      dueDate,
+    };
+
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push(newTask);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    onSave(newTask);
     setTask("");
     setPriority({ label: "Priority", value: "", color: "" });
+    setDueDate("");
+    onClose();
   };
 
   const handleCancel = () => {
     setTask("");
     setPriority({ label: "Priority", value: "", color: "" });
+    setDueDate("");
     onClose();
   };
 
@@ -42,7 +57,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
               </div>
               <input
                 type="text"
-                className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-8 pl-16 pr-4 text-base text-gray-800 shadow-md focus:border-blue-500 focus:ring-blue-500 lg:text-xl"
+                className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-8 pl-16 pr-4 text-base text-gray-800 shadow-md lg:text-xl"
                 placeholder="Add New Task..."
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
@@ -75,3 +90,5 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
     </div>
   );
 };
+
+export default AddTaskModal;

@@ -1,9 +1,9 @@
 // Task.jsx
-import { TaskProvider } from "./TaskContext";
+import { TaskProvider } from "../contexts/TaskContext";
 import TaskCheckbox from "./TaskCheckbox";
 import TaskName from "./TaskName";
-import EditButton from "../common/buttons/EditButton";
-import DeleteButton from "../common/buttons/DeleteButton";
+// import EditButton from "../common/buttons/EditButton";
+// import DeleteButton from "../common/buttons/DeleteButton";
 
 // eslint-disable-next-line react/prop-types
 const TaskLayout = ({ taskId, children }) => {
@@ -16,10 +16,10 @@ const TaskLayout = ({ taskId, children }) => {
 
         <div className="group relative flex w-full items-center justify-between">
           <TaskName>{children}</TaskName>
-          <div className="absolute right-2 hidden items-center space-x-6 p-2 duration-700 ease-in-out group-hover:flex">
+          {/* <div className="absolute right-2 hidden items-center space-x-6 p-2 duration-700 ease-in-out group-hover:flex">
             <EditButton />
             <DeleteButton />
-          </div>
+          </div> */}
         </div>
       </TaskProvider>
     </div>

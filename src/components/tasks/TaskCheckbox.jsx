@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import TaskContext from "./TaskContext";
+import TaskContext from "../contexts/TaskContext";
 
 const tickVariants = {
   checked: {
