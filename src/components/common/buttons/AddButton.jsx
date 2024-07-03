@@ -4,8 +4,7 @@ import { AddTaskModal } from "../modals/AddTaskModal";
 const AddButton = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleSave = (task) => {
-    console.log("Task saved:", task);
+  const handleSave = () => {
     setShowModal(false);
   };
 
