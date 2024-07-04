@@ -1,7 +1,7 @@
 import { Logo } from "../Logo";
 import { GoSidebarExpand } from "react-icons/go";
 import { GoSidebarCollapse } from "react-icons/go";
-import { FaTasks } from "react-icons/fa";
+import { MdOutlineChecklist } from "react-icons/md";
 import { BsPinAngle } from "react-icons/bs";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 // import { LuKanbanSquare } from "react-icons/lu";
@@ -10,13 +10,11 @@ import { FiSun } from "react-icons/fi";
 import { FiMoon } from "react-icons/fi";
 import { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const DesktopNavbar = ({ expanded, setExpanded }) => {
   const [theme, setTheme] = useState("light");
-  const location = useLocation();
-  const [currentPath, setCurrentPath] = useState(location.pathname);
 
   useEffect(() => {
     const initialTheme =
@@ -24,17 +22,11 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
     setTheme(initialTheme);
   }, []);
 
-  useEffect(() => {
-    setCurrentPath(location.pathname);
-  }, [location]);
-
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
-
-  const isActive = (path) => currentPath === path;
 
   return (
     <>
@@ -84,22 +76,26 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
               </div>
               <ul className="space-y-2 rounded-lg">
                 <li>
-                  <Link
+                  <NavLink
                     to="all-tasks"
-                    className={`flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${expanded ? "justify-start" : "justify-center"} ${isActive("/all-tasks") ? "bg-color-menu font-semibold" : ""}`}
+                    className={({ isActive }) =>
+                      `${isActive ? "bg-color-menu font-semibold" : ""} flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${expanded ? "justify-start" : "justify-center"}`
+                    }
                   >
-                    <FaTasks className="h-7 w-7" />
+                    <MdOutlineChecklist className="h-7 w-7" />
                     <span
                       className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
                     >
                       All Tasks
                     </span>
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/pinned-tasks"
-                    className={`hover:text-add-btn cursor-pointer rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${isActive("/pinned-tasks") ? "bg-color-menu font-semibold" : ""} flex items-center space-x-3 ${expanded ? "justify-start" : "justify-center"}`}
+                    className={({ isActive }) =>
+                      `${isActive ? "bg-color-menu font-semibold" : ""} hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"}`
+                    }
                   >
                     <BsPinAngle className="h-7 w-7" />
                     <span
@@ -107,12 +103,14 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                     >
                       Pinned
                     </span>
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/completed-tasks"
-                    className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"} ${isActive("/completed-tasks") ? "bg-color-menu font-semibold" : ""}`}
+                    className={({ isActive }) =>
+                      `${isActive ? "bg-color-menu font-semibold" : ""} hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"} `
+                    }
                   >
                     <IoCheckmarkCircleOutline className="h-7 w-7" />
                     <span
@@ -120,12 +118,14 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                     >
                       Completed
                     </span>
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     to="/deleted-tasks"
-                    className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"} ${isActive("/deleted-tasks") ? "bg-color-menu font-semibold" : ""}`}
+                    className={({ isActive }) =>
+                      `${isActive ? "bg-color-menu font-semibold" : ""} hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"}`
+                    }
                   >
                     <AiOutlineDelete className="h-7 w-7" />
                     <span
@@ -133,7 +133,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                     >
                       Deleted
                     </span>
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>
