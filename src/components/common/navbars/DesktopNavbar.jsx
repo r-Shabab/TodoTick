@@ -9,21 +9,32 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FiSun } from "react-icons/fi";
 import { FiMoon } from "react-icons/fi";
 import { useEffect, useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { Link, useLocation } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const DesktopNavbar = ({ expanded, setExpanded }) => {
   const [theme, setTheme] = useState("light");
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState(location.pathname);
+
   useEffect(() => {
     const initialTheme =
       document.documentElement.getAttribute("data-theme") || "light";
     setTheme(initialTheme);
   }, []);
 
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location]);
+
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
+
+  const isActive = (path) => currentPath === path;
 
   return (
     <>
@@ -42,12 +53,12 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
             <div
               className={`flex w-full items-center overflow-hidden py-2 transition-all ${expanded ? "justify-between" : "justify-center"}`}
             >
-              <a
-                href="#"
+              <Link
+                to="/"
                 className={`overflow-hidden transition-all ${expanded ? "w-full" : "w-0"}`}
               >
                 <Logo />
-              </a>
+              </Link>
               <button
                 onClick={() => setExpanded((curr) => !curr)}
                 className={`flex items-center justify-center rounded-lg p-3 hover:bg-color-background ${expanded ? "" : "w-full"}`}
@@ -72,62 +83,64 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                 </h3>
               </div>
               <ul className="space-y-2 rounded-lg">
-                <li
-                  className={`flex cursor-pointer items-center space-x-3 rounded-lg bg-color-menu p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold hover:text-color-text lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
-                >
-                  <FaTasks className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                <li>
+                  <Link
+                    to="all-tasks"
+                    className={`flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${expanded ? "justify-start" : "justify-center"} ${isActive("/all-tasks") ? "bg-color-menu font-semibold" : ""}`}
                   >
-                    All Tasks
-                  </span>
+                    <FaTasks className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                    >
+                      All Tasks
+                    </span>
+                  </Link>
                 </li>
-                <li
-                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
-                >
-                  <BsPinAngle className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                <li>
+                  <Link
+                    to="/pinned-tasks"
+                    className={`hover:text-add-btn cursor-pointer rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${isActive("/pinned-tasks") ? "bg-color-menu font-semibold" : ""} flex items-center space-x-3 ${expanded ? "justify-start" : "justify-center"}`}
                   >
-                    Pinned
-                  </span>
+                    <BsPinAngle className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                    >
+                      Pinned
+                    </span>
+                  </Link>
                 </li>
-                <li
-                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
-                >
-                  <IoCheckmarkCircleOutline className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                <li>
+                  <Link
+                    to="/completed-tasks"
+                    className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"} ${isActive("/completed-tasks") ? "bg-color-menu font-semibold" : ""}`}
                   >
-                    Completed
-                  </span>
+                    <IoCheckmarkCircleOutline className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                    >
+                      Completed
+                    </span>
+                  </Link>
                 </li>
-                {/* <li
-                className={`flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-xl hover:bg-light-menu-bg hover:font-semibold hover:text-add-btn ${expanded ? "justify-start" : "justify-center"}`}
-                >
-                <LuKanbanSquare className="h-7 w-7" />
-                <span
-                className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
-                >
-                Kanban Board
-                </span>
-                </li> */}
-                <li
-                  className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu hover:font-semibold lg:text-xl ${expanded ? "justify-start" : "justify-center"}`}
-                >
-                  <AiOutlineDelete className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                <li>
+                  <Link
+                    to="/deleted-tasks"
+                    className={`hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${expanded ? "justify-start" : "justify-center"} ${isActive("/deleted-tasks") ? "bg-color-menu font-semibold" : ""}`}
                   >
-                    Deleted
-                  </span>
+                    <AiOutlineDelete className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${expanded ? "w-full" : "hidden"}`}
+                    >
+                      Deleted
+                    </span>
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className="flex justify-center pb-10">
             <button
-              className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu hover:font-semibold ${expanded ? "px-10 py-5" : "w-full"}`}
+              className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu/45 active:font-semibold ${expanded ? "px-10 py-5" : "w-full"}`}
               onClick={toggleTheme}
             >
               {theme === "light" ? (

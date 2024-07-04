@@ -21,7 +21,7 @@ const AllTasksPage = () => {
         <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
           <div className="w-full border-b-2 border-color-text/50 p-2">
             <h3 className="flex items-center space-x-2 font-title text-sm font-medium lg:text-base">
-              <TbPinnedFilled className="size-7" />
+              <TbPinnedFilled className="size-7 text-yellow-500" />
               <span className="text-color-text">Pinned</span>
             </h3>
           </div>
@@ -41,7 +41,7 @@ const AllTasksPage = () => {
         <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
           <div className="w-full border-b-2 border-color-text/50 p-2">
             <h3 className="flex items-center space-x-2 font-title text-sm font-medium lg:text-base">
-              <MdDoneAll className="size-7" />
+              <MdDoneAll className="size-7 text-blue-500" />
               <span className="text-color-text">Todos</span>
             </h3>
           </div>

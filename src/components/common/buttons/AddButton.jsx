@@ -12,9 +12,9 @@ const AddButton = () => {
     <div>
       <button
         onClick={() => setShowModal(true)}
-        className={`flex items-center justify-center space-x-2 rounded-lg bg-color-primary-btn px-5 py-3 font-button font-semibold text-white shadow-lg hover:bg-[#276792] lg:px-10 lg:py-5`}
+        className={`flex items-center justify-center space-x-2 rounded-lg bg-color-primary-btn px-4 py-3 font-button font-semibold text-white shadow-lg hover:bg-[#276792] lg:px-10 lg:py-5`}
       >
-        <FaPlus className="h-5 w-5 lg:h-7 lg:w-7" />
+        <FaPlus className="h-4 w-4 lg:h-7 lg:w-7" />
         <span className={`text-sm lg:text-xl`}>Add Task</span>
       </button>
       <AddTaskModal

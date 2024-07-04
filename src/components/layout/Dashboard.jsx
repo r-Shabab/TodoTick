@@ -3,8 +3,7 @@ import Searchbar from "../common/Searchbar";
 import AddButton from "../common/buttons/AddButton";
 import SortByButton from "../common/buttons/SortByButton";
 import PageTitle from "../common/PageTitle";
-// import PinnedTasks from "../tasks/PinnedTasks";
-import AllTasksPage from "../pages/AllTasksPage";
+import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -18,7 +17,7 @@ const Dashboard = () => {
           </div>
           <SortByButton />
 
-          <AllTasksPage />
+          <Outlet />
         </div>
       </div>
     </div>
