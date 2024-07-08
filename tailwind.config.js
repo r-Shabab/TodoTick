@@ -15,6 +15,9 @@ export default {
         "color-delete-btn": "hsl(var(--delete-btn) / <alpha-value>)",
         "color-cancel-btn": "hsl(var(--cancel-btn) / <alpha-value>)",
         "color-text": "hsl(var(--color-text) / <alpha-value>)",
+        "color-low-priority": "hsl(var(--edit-btn) / <alpha-value>)",
+        "color-med-priority": "hsl(var(--priority-btn) / <alpha-value>)",
+        "color-high-priority": "hsl(var(--delete-btn) / <alpha-value>)",
       },
       fontFamily: {
         title: ["Montserrat"],

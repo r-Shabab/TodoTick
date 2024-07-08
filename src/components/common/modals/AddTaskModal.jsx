@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// AddTaskModal.jsx
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
 import { PriorityDropdown } from "../buttons/PriorityButton";
@@ -83,7 +82,7 @@ export const AddTaskModal = ({ show, onClose, onSave }) => {
             className="rounded bg-color-primary-btn px-10 py-3 font-button text-lg text-white hover:bg-blue-600"
             onClick={handleSave}
           >
-            Add Task
+            Add
           </button>
         </div>
       </div>

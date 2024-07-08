@@ -14,14 +14,14 @@ const TaskName = ({ children }) => {
       } text-color-text`}
       htmlFor={taskId}
       animate={{
-        x: isChecked ? [0, -6, 0] : [0, 6, 0],
+        x: isChecked ? [0, -5, 0] : [0, 5, 0],
         color: isChecked ? "#a1a1aa" : "",
         textDecorationLine: isChecked ? "line-through" : "none",
       }}
       initial={false}
       transition={{
-        duration: 0.3,
-        ease: "easeOut",
+        duration: 0.5,
+        ease: "backOut",
       }}
     >
       {children}

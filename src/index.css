@@ -16,6 +16,9 @@
     --delete-btn: 5deg 71% 55%;
     --cancel-btn: 0deg 0% 97%;
     --color-text: 0deg 0% 2%;
+    --low-priority: 164deg 63% 38%;
+    --med-priority: 284deg 28% 45%;
+    --high-priority: 5deg 71% 55%;
   }
   :root[data-theme="dark"] {
     --sidebar: 0deg 0% 2%;
@@ -29,6 +32,9 @@
     --delete-btn: 5deg 71% 55%;
     --cancel-btn: 0deg 0% 97%;
     --color-text: 0deg 0% 100%;
+    --low-priority: 164deg 63% 38%;
+    --med-priority: 284deg 28% 45%;
+    --high-priority: 5deg 71% 55%;
   }
 }
 

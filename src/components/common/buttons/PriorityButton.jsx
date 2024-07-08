@@ -1,16 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { HiOutlineChevronDown, HiFlag } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi2";
-
-const priorities = [
-  { label: "Low", value: "Low", color: "text-green-500" },
-  { label: "Medium", value: "Medium", color: "text-yellow-500" },
-  { label: "High", value: "High", color: "text-red-500" },
-];
+import TaskContext from "../../contexts/TaskContext";
 
 export const PriorityDropdown = ({ priority, setPriority }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { priorities } = useContext(TaskContext);
 
   return (
     <div className="relative w-1/5">
@@ -21,7 +17,7 @@ export const PriorityDropdown = ({ priority, setPriority }) => {
       >
         <span className="flex items-center text-color-text">
           <HiFlag className={`mr-2 h-5 w-5 ${priority.color}`} />
-          {priority.label || "Select Priority"}
+          {priority.label}
         </span>
         {isOpen ? (
           <HiOutlineChevronUp className="h-5 w-5 text-color-text" />

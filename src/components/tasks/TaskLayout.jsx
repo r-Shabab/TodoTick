@@ -8,7 +8,7 @@ import TaskName from "./TaskName";
 // eslint-disable-next-line react/prop-types
 const TaskLayout = ({ taskId, children }) => {
   return (
-    <div className="flex w-full items-center space-x-2">
+    <div className="flex w-full items-center space-x-2 px-2">
       <TaskProvider taskId={taskId}>
         <div className="relative flex items-center">
           <TaskCheckbox />
