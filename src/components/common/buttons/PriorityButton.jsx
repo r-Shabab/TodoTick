@@ -2,11 +2,17 @@
 import { useContext, useState } from "react";
 import { HiOutlineChevronDown, HiFlag } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi2";
-import TaskContext from "../../contexts/TaskContext";
+import TaskContext from "../../context/TaskContext";
 
 export const PriorityDropdown = ({ priority, setPriority }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { priorities } = useContext(TaskContext);
+  // <select value={todo.priority || ""} onChange={handlePriorityChange}>
+  //   <option value="">No Priority</option>
+  //   <option value="low">Low</option>
+  //   <option value="medium">Medium</option>
+  //   <option value="high">High</option>
+  // </select>;
 
   return (
     <div className="relative w-1/5">

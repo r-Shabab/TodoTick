@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import TaskContext from "../contexts/TaskContext";
+import TaskContext from "../context/TaskContext";
 
 const tickVariants = {
   checked: {
@@ -20,17 +20,19 @@ const tickVariants = {
   },
 };
 
-const TaskCheckbox = () => {
-  const { taskId, isChecked, setIsChecked, priorities } =
-    useContext(TaskContext);
+const TaskCheckbox = (taskId) => {
+  const { isTodoChecked, toggleCheck } = useContext(TaskContext);
+
+  const isChecked = isTodoChecked(taskId);
+
   const handleCheckbox = () => {
-    setIsChecked(!isChecked);
+    toggleCheck(taskId);
   };
   return (
     <div className="relative flex items-center">
       <input
         type="checkbox"
-        className={`relative h-5 w-5 cursor-pointer appearance-none rounded-full border-2 ${priorities.value === "High" ? "border-color-high-priority" : "border-color-primary-btn"} bg-gray-100 transition-all duration-500 checked:border-[#276792] checked:bg-color-primary-btn lg:h-7 lg:w-7`}
+        className={`relative h-5 w-5 cursor-pointer appearance-none rounded-full border-2 border-color-primary-btn bg-color-background/30 transition-all duration-500 checked:border-[#276792] checked:bg-color-primary-btn lg:h-7 lg:w-7`}
         onChange={handleCheckbox}
         id={taskId}
         checked={isChecked}

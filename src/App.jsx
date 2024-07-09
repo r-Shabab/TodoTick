@@ -7,7 +7,7 @@ import AllTasksPage from "./components/pages/AllTasksPage";
 import CompletedTasksPage from "./components/pages/CompletedTasksPage";
 import DeletedTasksPage from "./components/pages/DeletedTasksPage";
 import PinnedTasksPage from "./components/pages/PinnedTasksPage";
-import { TaskProvider } from "./components/contexts/TaskContext";
+import { TaskProvider } from "./components/context/TaskContext";
 
 function App() {
   const [expanded, setExpanded] = useState(true);
