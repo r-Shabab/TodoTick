@@ -14,18 +14,12 @@ const TaskName = ({ children, taskId }) => {
   const dueDate = getTodoDueDate(taskId);
   const priority = getTodoPriority(taskId);
 
-  const formatDate = (date) => {
-    if (!date) return "No due date";
-    const today = new Date().toDateString();
-    const dueDate = new Date(date).toDateString();
-    if (dueDate === today) return "Today";
-    return dueDate;
-  };
-
   const getPriorityText = (priority) => {
-    if (!priority) return "No priority";
+    if (!priority) return null;
     return priority.charAt(0).toUpperCase() + priority.slice(1);
   };
+
+  const priorityText = getPriorityText(priority);
 
   return (
     <div className="flex flex-col">
@@ -47,27 +41,35 @@ const TaskName = ({ children, taskId }) => {
       >
         {children}
       </motion.label>
-      <div className="bg-c flex items-center space-x-2">
-        <div className="flex items-center space-x-1">
-          <CiCalendar className="h-4 w-4 fill-color-primary-btn" />
-          <div
-            id={`date-${taskId}`}
-            className="font-todo text-xs text-color-text"
-          >
-            {formatDate(dueDate)}
-          </div>
+      {(dueDate || priorityText) && (
+        <div className="bg-c flex items-center space-x-2">
+          {dueDate && (
+            <div className="flex items-center space-x-1">
+              <CiCalendar className="h-4 w-4 fill-color-primary-btn" />
+              <div
+                id={`date-${taskId}`}
+                className="font-todo text-xs text-color-text"
+              >
+                {dueDate}
+              </div>
+            </div>
+          )}
+          {dueDate && priorityText && (
+            <span className="text-color-text"> | </span>
+          )}
+          {priorityText && (
+            <div className="flex items-center space-x-1">
+              <IoIosFlag className="h-4 w-4 fill-color-delete-btn" />
+              <div
+                id={`priority-${taskId}`}
+                className="font-todo text-xs text-color-text"
+              >
+                {priorityText}
+              </div>
+            </div>
+          )}
         </div>
-        <span className="text-color-text"> | </span>
-        <div className="flex items-center space-x-1">
-          <IoIosFlag className="h-4 w-4 fill-color-delete-btn" />
-          <div
-            id={`priority-${taskId}`}
-            className="font-todo text-xs text-color-text"
-          >
-            {getPriorityText(priority)}
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

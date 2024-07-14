@@ -6,6 +6,15 @@ const TaskContext = createContext();
 export const TaskProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
 
+  const formatDateToString = (date) => {
+    if (!date) return null;
+    const d = new Date(date);
+    return d
+      .toLocaleDateString("en-GB", { day: "numeric", month: "long" })
+      .split(" ")
+      .join(" ");
+  };
+
   const addTodo = useCallback((newTodo) => {
     setTodos((prevTodos) => [
       ...prevTodos,
@@ -15,8 +24,8 @@ export const TaskProvider = ({ children }) => {
         isChecked: false,
         isPinned: false,
         priority: null,
-        dueDate: null,
-        dateCreated: new Date().toISOString().slice(0, 10),
+        dueDate: formatDateToString(newTodo.dueDate),
+        dateCreated: formatDateToString(new Date()),
       },
     ]);
   }, []);
