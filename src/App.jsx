@@ -20,7 +20,7 @@ function App() {
           <DesktopNavbar expanded={expanded} setExpanded={setExpanded} />
           <main
             className={`flex-1 overflow-hidden transition-all duration-300 ${
-              expanded ? "lg:ml-[15%]" : "lg:ml-[0%]"
+              expanded ? "xl:ml-[15%]" : "xl:ml-[0%]"
             }`}
           >
             <Routes>

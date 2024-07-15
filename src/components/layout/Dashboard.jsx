@@ -8,10 +8,10 @@ import { Outlet } from "react-router-dom";
 const Dashboard = () => {
   return (
     <div className="h-full overflow-y-auto bg-color-background">
-      <div className="px-6 py-6 lg:px-20 lg:py-10">
-        <div className="mx-auto w-full space-y-6 lg:w-5/6">
+      <div className="px-6 py-6 xl:px-20 xl:py-10">
+        <div className="mx-auto w-full space-y-6 xl:w-5/6">
           <Searchbar />
-          <div className="flex items-center justify-between px-2 lg:px-0">
+          <div className="flex items-center justify-between px-2 xl:px-0">
             <PageTitle />
             <AddButton />
           </div>

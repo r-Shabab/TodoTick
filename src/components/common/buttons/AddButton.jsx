@@ -13,8 +13,12 @@ const AddButton = () => {
     <div>
       <motion.button
         onClick={() => setShowModal(true)}
-        className="flex items-center justify-center space-x-2 rounded-lg bg-color-primary-btn px-4 py-3 font-button font-semibold text-white shadow-lg hover:bg-[#276792] lg:px-10 lg:py-5"
-        whileHover={{ scale: 1.1 }}
+        className="flex items-center justify-center space-x-2 rounded-md bg-color-primary-btn px-4 py-3 font-button font-semibold text-white shadow-xl hover:bg-[#276792] lg:px-10 lg:py-5"
+        whileHover={{
+          scale: 1.1,
+          ease: "backInOut",
+          transition: { duration: 0.2 },
+        }}
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

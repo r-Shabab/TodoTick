@@ -33,8 +33,8 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
     <aside
       className={`fixed h-screen transition-all duration-300 ${
         expanded
-          ? "w-[70%] sm:w-[50%] lg:w-[15%] xl:w-[20%] 2xl:w-[15%]"
-          : "w-0 lg:w-[16%] xl:w-[8%] 2xl:w-[5%]"
+          ? "hidden xl:flex xl:w-[20%] 2xl:w-[15%]"
+          : "w-0 xl:w-[8%] 2xl:w-[5%]"
       } z-20`}
     >
       <nav
@@ -75,7 +75,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
             </motion.button>
           </div>
           <div className="space-y-3 rounded-lg">
-            <div
+            {/* <div
               className={`overflow-hidden rounded-lg transition-all ${
                 expanded ? "w-full p-2" : ""
               }`}
@@ -87,7 +87,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
               >
                 MENU
               </h3>
-            </div>
+            </div> */}
             <motion.ul
               initial={{ x: -500 }}
               animate={{ x: 0 }}

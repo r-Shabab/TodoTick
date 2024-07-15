@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        "2xl": "1920px",
+      },
       colors: {
         "color-sidebar": "hsl(var(--sidebar) / <alpha-value>)",
         "color-background": "hsl(var(--background) / <alpha-value>)",
