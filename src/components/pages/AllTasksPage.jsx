@@ -10,8 +10,8 @@ const AllTasksPage = () => {
   return (
     <section className="lg:pt-3.5">
       <div className="mx-auto w-full space-y-3">
-        <div className="rounded-md bg-color-tasks-bg p-3 shadow-md">
-          <div className="w-full p-1">
+        <div className="rounded-md bg-color-tasks-bg p-4 shadow-md hover:cursor-pointer hover:bg-color-sidebar/70">
+          <div className="w-full">
             <h3 className="flex items-center space-x-2 font-title text-sm font-medium lg:text-base">
               <MdDoneAll className="size-7 text-blue-500" />
               <span className="font-title text-lg text-color-text">Todos</span>
