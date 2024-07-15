@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Dashboard from "./components/layout/Dashboard";
 import DesktopNavbar from "./components/common/navbars/DesktopNavbar";
-import MobileNavbar from "./components/common/navbars/MobileNavbar";
+import BottomNavbar from "./components/common/navbars/BottomNavbar.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AllTasksPage from "./components/pages/AllTasksPage";
 import CompletedTasksPage from "./components/pages/CompletedTasksPage";
@@ -16,12 +16,12 @@ function App() {
     <TaskProvider>
       <Router>
         <div className="flex h-screen overflow-hidden">
-          <div>
-            <MobileNavbar expanded={expanded} setExpanded={setExpanded} />
-          </div>
+          {/* <MobileNavbar expanded={expanded} setExpanded={setExpanded} /> */}
           <DesktopNavbar expanded={expanded} setExpanded={setExpanded} />
           <main
-            className={`flex-1 overflow-hidden transition-all duration-300 ${expanded ? "lg:ml-[15%]" : "lg:ml-[5%]"}`}
+            className={`flex-1 overflow-hidden transition-all duration-300 ${
+              expanded ? "lg:ml-[15%]" : "lg:ml-[0%]"
+            }`}
           >
             <Routes>
               <Route path="/" element={<Dashboard />}>
@@ -36,6 +36,7 @@ function App() {
               </Route>
             </Routes>
           </main>
+          <BottomNavbar />
         </div>
       </Router>
     </TaskProvider>
