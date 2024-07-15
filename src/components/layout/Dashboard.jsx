@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="h-full overflow-y-auto bg-color-background pt-20 xl:pt-0">
+    <div className="h-full overflow-y-auto bg-color-background">
       <div className="px-6 py-6 lg:px-20 lg:py-10">
         <div className="mx-auto w-full space-y-6 lg:w-5/6">
           <Searchbar />
@@ -16,7 +16,6 @@ const Dashboard = () => {
             <AddButton />
           </div>
           <SortByButton />
-
           <Outlet />
         </div>
       </div>
