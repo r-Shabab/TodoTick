@@ -18,7 +18,7 @@ const AddButton = () => {
         whileTap={{ scale: 0.9 }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 100 }}
+        transition={{ ease: "backInOut", duration: 0.5 }}
       >
         <FaPlus className="h-4 w-4 lg:h-7 lg:w-7" />
         <span className="text-sm lg:text-xl">Add Task</span>

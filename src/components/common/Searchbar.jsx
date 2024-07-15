@@ -1,16 +1,16 @@
 import { FiSearch } from "react-icons/fi";
 const Searchbar = () => {
   return (
-    <div>
-      <form className="mx-auto w-full">
-        <div className="relative flex">
-          <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center px-6 lg:px-3">
-            <FiSearch className="h-8 w-5 text-color-text lg:h-16 lg:w-7" />
+    <div className="mx-auto w-full">
+      <form className="relative">
+        <div className="flex items-center">
+          <div className="absolute left-3 flex items-center">
+            <FiSearch className="h-6 w-6 text-gray-500" />
           </div>
           <input
             type="search"
             id="default-search"
-            className="text-md block h-16 w-full rounded-lg border-color-text/30 bg-color-tasks-bg px-16 py-8 font-todo text-color-text shadow-md focus:border-color-primary-btn focus:ring-color-primary-btn lg:text-lg"
+            className="block h-12 w-full rounded-lg border border-gray-300 bg-white pl-12 pr-4 font-todo text-lg shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn lg:h-14"
             placeholder="Search"
             required
           />

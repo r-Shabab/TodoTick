@@ -33,8 +33,8 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
     <aside
       className={`fixed h-screen transition-all duration-300 ${
         expanded
-          ? "w-[70%] sm:w-[50%] lg:w-[15%] xl:w-[20%]"
-          : "w-0 lg:w-[16%] xl:w-[10%] 2xl:w-[7%]"
+          ? "w-[70%] sm:w-[50%] lg:w-[15%] xl:w-[20%] 2xl:w-[15%]"
+          : "w-0 lg:w-[16%] xl:w-[8%] 2xl:w-[5%]"
       } z-20`}
     >
       <nav
@@ -59,8 +59,11 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ease: "backInOut", duration: 0.5 }}
               onClick={() => setExpanded((curr) => !curr)}
-              className={`flex items-center justify-center rounded-lg p-3 hover:bg-color-background ${
+              className={`flex items-center justify-center rounded-lg hover:scale-110 ${
                 expanded ? "" : "w-full"
               }`}
             >
@@ -72,10 +75,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
             </motion.button>
           </div>
           <div className="space-y-3 rounded-lg">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+            <div
               className={`overflow-hidden rounded-lg transition-all ${
                 expanded ? "w-full p-2" : ""
               }`}
@@ -87,8 +87,13 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
               >
                 MENU
               </h3>
-            </motion.div>
-            <ul className="space-y-2 rounded-lg">
+            </div>
+            <motion.ul
+              initial={{ x: -500 }}
+              animate={{ x: 0 }}
+              transition={{ ease: "backInOut", duration: 0.5 }}
+              className="space-y-2 rounded-lg"
+            >
               <motion.li
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -97,8 +102,8 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   to="all-tasks"
                   className={({ isActive }) =>
                     `${
-                      isActive ? "bg-color-menu font-semibold" : ""
-                    } flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${
+                      isActive ? "bg-color-menu" : ""
+                    } flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${
                       expanded ? "justify-start" : "justify-center"
                     }`
                   }
@@ -121,8 +126,8 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   to="/pinned-tasks"
                   className={({ isActive }) =>
                     `${
-                      isActive ? "bg-color-menu font-semibold" : ""
-                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
+                      isActive ? "bg-color-menu" : ""
+                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
                       expanded ? "justify-start" : "justify-center"
                     }`
                   }
@@ -145,8 +150,8 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   to="/completed-tasks"
                   className={({ isActive }) =>
                     `${
-                      isActive ? "bg-color-menu font-semibold" : ""
-                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
+                      isActive ? "bg-color-menu" : ""
+                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
                       expanded ? "justify-start" : "justify-center"
                     } `
                   }
@@ -169,8 +174,8 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   to="/deleted-tasks"
                   className={({ isActive }) =>
                     `${
-                      isActive ? "bg-color-menu font-semibold" : ""
-                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-3 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
+                      isActive ? "bg-color-menu" : ""
+                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
                       expanded ? "justify-start" : "justify-center"
                     }`
                   }
@@ -185,13 +190,16 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                   </span>
                 </NavLink>
               </motion.li>
-            </ul>
+            </motion.ul>
           </div>
         </div>
         <div className="flex justify-center pb-10">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ ease: "backInOut", duration: 0.5 }}
             className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu/45 active:font-semibold ${
               expanded ? "px-10 py-5" : "w-full"
             }`}
