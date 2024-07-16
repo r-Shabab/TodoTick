@@ -45,7 +45,7 @@ export const Logo = () => {
         initial={{ x: 0 }}
         animate={{ x: [0, 50, 0] }}
         transition={{ delay: 1.3, duration: 0.3 }}
-        className="font-logo tracking-tighter text-color-primary-btn transition-all duration-100 hover:font-semibold xl:text-2xl 2xl:text-4xl"
+        className="font-logo font-semibold tracking-tighter text-color-primary-btn transition-all duration-100 xl:text-2xl 2xl:text-4xl"
       >
         TodoTick
       </motion.h1>

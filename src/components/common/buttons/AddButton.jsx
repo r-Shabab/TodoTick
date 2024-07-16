@@ -13,7 +13,7 @@ const AddButton = () => {
     <div>
       <motion.button
         onClick={() => setShowModal(true)}
-        className="flex items-center justify-center space-x-2 rounded-md bg-color-primary-btn px-4 py-3 font-button font-semibold text-white shadow-xl hover:bg-[#276792] lg:px-10 lg:py-5"
+        className="flex items-center justify-center space-x-2 rounded-md bg-color-primary-btn/80 px-4 py-3 font-button font-semibold text-white shadow-xl hover:bg-[#276792] lg:px-10 lg:py-5"
         whileHover={{
           scale: 1.1,
           ease: "backInOut",

@@ -21,8 +21,6 @@ const SortByButton = () => {
     { label: "Priority (Low > High)", value: "priorityLowHigh" },
     { label: "Due Date (Recent > Old)", value: "dueDateRecentOld" },
     { label: "Due Date (Old > Recent)", value: "dueDateOldRecent" },
-    { label: "Date Created (Recent > Old)", value: "dateCreatedRecentOld" },
-    { label: "Date Created (Old > Recent)", value: "dateCreatedOldRecent" },
   ];
 
   const menuVariants = {
