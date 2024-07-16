@@ -39,7 +39,7 @@ export default function PrioritySelector() {
 
   return (
     <div className="mb-4">
-      <label className="mb-2 block font-title font-semibold text-color-text">
+      <label className="sr-only mb-2 block font-title text-sm font-semibold text-color-text xl:text-lg">
         Priority
       </label>
       <div className="flex space-x-4">

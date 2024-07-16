@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useState, useContext, useRef, useEffect } from "react";
 import { FaPlus } from "react-icons/fa6";
-import DateButton from "../buttons/DateButton";
+// import DateButton from "../buttons/DateButton";
 import TaskContext from "../../context/TaskContext";
 import { AnimatePresence, motion } from "framer-motion";
 import PrioritySelector from "../buttons/PrioritySelector";
+import DateSelector from "../buttons/DateSelector";
+
 export const AddTaskModal = ({ show, onClose }) => {
   //states
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState(null);
-  const [dueDate, setDueDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const { addTodo } = useContext(TaskContext);
   const inputRef = useRef(null);
 
@@ -21,14 +23,14 @@ export const AddTaskModal = ({ show, onClose }) => {
 
   if (!show) return null;
   //handleDateChange
-  const handleDateChange = (date) => {
-    setDueDate(date);
-  };
+  // const handleDateChange = (date) => {
+  //   setDueDate(date);
+  // };
 
   const resetFields = () => {
     setTask("");
     setPriority(null);
-    setDueDate(null);
+    setSelectedDate(null);
   };
 
   //handleSave
@@ -37,7 +39,7 @@ export const AddTaskModal = ({ show, onClose }) => {
     const newTodo = {
       task,
       priority,
-      dueDate,
+      selectedDate,
     };
     addTodo(newTodo);
     onClose();
@@ -98,23 +100,27 @@ export const AddTaskModal = ({ show, onClose }) => {
               </div>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:space-x-8">
             <PrioritySelector />
-            <DateButton onDateChange={handleDateChange}>
+            <DateSelector
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
+            />
+            {/* <DateButton onDateChange={handleDateChange}>
               {dueDate && <p>Due Date: {new Date(dueDate).toDateString()}</p>}
-            </DateButton>
+            </DateButton> */}
           </div>
           <div className="flex justify-end space-x-5">
             <button
               type="button"
-              className="rounded bg-white/30 px-6 py-2 font-button text-lg text-color-text hover:bg-white/20"
+              className="rounded bg-color-background/50 px-8 py-1 font-button text-sm text-color-text hover:bg-white/20 xl:px-10 xl:py-4 xl:text-lg"
               onClick={handleCancel}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="rounded bg-color-primary-btn px-10 py-3 font-button text-lg text-white hover:bg-blue-600"
+              className="rounded bg-color-primary-btn px-8 py-2 font-button text-sm text-white hover:bg-blue-600 xl:px-10 xl:py-4 xl:text-lg"
             >
               Add
             </button>
