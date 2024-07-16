@@ -32,9 +32,7 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
   return (
     <aside
       className={`fixed h-screen transition-all duration-300 ${
-        expanded
-          ? "hidden xl:flex xl:w-[20%] 2xl:w-[15%]"
-          : "w-0 xl:w-[8%] 2xl:w-[5%]"
+        expanded ? "hidden xl:flex xl:w-72 2xl:w-96" : "w-0 xl:w-28"
       } z-20`}
     >
       <nav
