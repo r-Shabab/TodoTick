@@ -1,9 +1,9 @@
 // import IncompleteTasks from "../tasks/IncompleteTasks";
 import Searchbar from "../common/Searchbar";
 import AddButton from "../common/buttons/AddButton";
-import SortByButton from "../common/buttons/SortByButton";
 import PageTitle from "../common/PageTitle";
 import { Outlet } from "react-router-dom";
+import SortByDropDown from "../common/buttons/SortByDropDown";
 
 const Dashboard = () => {
   return (
@@ -15,7 +15,8 @@ const Dashboard = () => {
             <PageTitle />
             <AddButton />
           </div>
-          <SortByButton />
+          <SortByDropDown />
+
           <Outlet />
         </div>
       </div>

@@ -1,18 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { FaAngleDown } from "react-icons/fa6";
-import { FaAngleUp } from "react-icons/fa6";
-
-const SortByButton = () => {
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import { GoSortDesc } from "react-icons/go";
+import { v4 as uuidv4 } from "uuid";
+const SortByDropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [sortOption, setSortOption] = useState("");
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleOptionClick = (option) => {
-    setSelectedOption(option.label);
+    setSortOption(option.label);
     setIsOpen(false);
   };
 
@@ -52,14 +52,21 @@ const SortByButton = () => {
         <motion.button
           whileTap={{ scale: 0.95 }}
           type="button"
-          className="flex w-full items-center space-x-8 rounded-md bg-color-tasks-bg px-4 py-2 font-button text-color-text shadow-md hover:bg-color-sidebar/75 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn xl:px-8 xl:py-3"
+          className="flex w-full items-center space-x-10 rounded-md bg-color-tasks-bg px-4 py-2 font-button text-color-text shadow-md hover:bg-color-sidebar/75 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn xl:px-8 xl:py-3"
           id="options-menu"
-          aria-expanded="true"
-          aria-haspopup="true"
           onClick={toggleDropdown}
         >
-          <span className="text-sm lg:text-lg">{`Sort By ${selectedOption ? ` : ${selectedOption}` : ""} `}</span>
-          <span>{isOpen ? <FaAngleUp /> : <FaAngleDown />}</span>
+          <div className="flex items-center space-x-1 text-sm lg:text-lg">
+            <span>{`Sort By ${sortOption ? `: ${sortOption}` : ""}`}</span>
+            <span>{!sortOption && <GoSortDesc className="h-5 w-5" />}</span>
+          </div>
+          <span>
+            {isOpen ? (
+              <FaAngleUp className="h-5 w-5" />
+            ) : (
+              <FaAngleDown className="h-5 w-5" />
+            )}
+          </span>
         </motion.button>
       </div>
       <AnimatePresence>
@@ -77,7 +84,7 @@ const SortByButton = () => {
             <div role="none">
               {options.map((option, index) => (
                 <motion.button
-                  key={option.value}
+                  key={uuidv4()}
                   className={`text-md block w-full px-4 py-2 text-left text-color-text hover:bg-color-menu/50 ${index % 2 === 1 ? "border-b border-color-background" : ""}`}
                   role="menuitem"
                   onClick={() => handleOptionClick(option)}
@@ -95,4 +102,4 @@ const SortByButton = () => {
   );
 };
 
-export default SortByButton;
+export default SortByDropDown;

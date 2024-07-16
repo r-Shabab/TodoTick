@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState, useContext, useRef, useEffect } from "react";
-import { IoAdd } from "react-icons/io5";
-//import { PriorityDropdown } from "../buttons/PriorityButton";
+import { FaPlus } from "react-icons/fa6";
 import DateButton from "../buttons/DateButton";
 import TaskContext from "../../context/TaskContext";
 import { AnimatePresence, motion } from "framer-motion";
+import PrioritySelector from "../buttons/PrioritySelector";
 export const AddTaskModal = ({ show, onClose }) => {
   //states
   const [task, setTask] = useState("");
@@ -78,18 +78,18 @@ export const AddTaskModal = ({ show, onClose }) => {
       >
         <form
           onSubmit={handleSave}
-          className="flex w-1/3 flex-col space-y-6 rounded-lg bg-color-sidebar p-7 shadow-lg"
+          className="flex w-11/12 flex-col space-y-6 rounded-lg bg-color-sidebar p-5 shadow-lg xl:w-1/3 xl:p-7"
         >
           <div>
             <div className="mx-auto w-full">
               <div className="relative flex items-center">
-                <div className="absolute left-4">
-                  <IoAdd className="h-8 w-8 text-gray-600 lg:h-12 lg:w-8" />
+                <div className="absolute left-3">
+                  <FaPlus className="h-4 w-4 text-color-text lg:h-6 lg:w-6" />
                 </div>
                 <input
                   ref={inputRef}
                   type="text"
-                  className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-8 pl-16 pr-4 text-base text-gray-800 shadow-md lg:text-xl"
+                  className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-4 pl-10 pr-4 font-todo text-base text-color-text shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn lg:text-xl xl:pl-14"
                   placeholder="Add New Task..."
                   value={task}
                   onChange={(e) => setTask(e.target.value)}
@@ -99,23 +99,7 @@ export const AddTaskModal = ({ show, onClose }) => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <label
-              htmlFor="priority"
-              className="sr-only block text-sm font-medium text-gray-700"
-            >
-              Priority
-            </label>
-            <select
-              id="priority"
-              value={priority || ""}
-              onChange={(e) => setPriority(e.target.value || null)}
-              className="mt-1 block w-[25%] rounded-md border-gray-300 p-2 py-4 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            >
-              <option value="">No Priority</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
+            <PrioritySelector />
             <DateButton onDateChange={handleDateChange}>
               {dueDate && <p>Due Date: {new Date(dueDate).toDateString()}</p>}
             </DateButton>
