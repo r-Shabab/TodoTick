@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import TaskContext from "../context/TaskContext";

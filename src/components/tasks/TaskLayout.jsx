@@ -7,7 +7,7 @@ import { AiOutlinePushpin } from "react-icons/ai";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 // eslint-disable-next-line react/prop-types
-const TaskLayout = ({ taskId, children }) => {
+const TaskLayout = ({ taskId, children, isChecked }) => {
   return (
     <div className="flex w-full items-center space-x-4 px-2">
       <TaskProvider taskId={taskId}>
