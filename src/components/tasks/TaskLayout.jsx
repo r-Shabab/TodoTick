@@ -3,7 +3,7 @@ import { useContext } from "react";
 import TaskCheckbox from "./TaskCheckbox";
 import TaskName from "./TaskName";
 import { AiOutlinePushpin } from "react-icons/ai";
-// import { AiFillPushpin } from "react-icons/ai";
+import { AiFillPushpin } from "react-icons/ai";
 import { RiDeleteBinLine } from "react-icons/ri";
 import TaskContext from "../context/TaskContext";
 

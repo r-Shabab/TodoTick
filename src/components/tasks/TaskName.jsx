@@ -4,12 +4,21 @@ import TaskContext from "../context/TaskContext";
 import { CiCalendar } from "react-icons/ci";
 import { IoIosFlag } from "react-icons/io";
 
+const formatDate = (dateString) => {
+  if (!dateString) return null;
+
+  const date = new Date(dateString);
+  const options = { weekday: 'short', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
+};
+
 const TaskName = ({ children, taskId }) => {
-  const { isTodoChecked, getTodoDueDate, getTodoPriority } = useContext(TaskContext);
+  const { isTodoChecked, getTodoDueDate, getTodoPriority , isTodoDeleted } = useContext(TaskContext);
 
   const isChecked = isTodoChecked(taskId);
   const dueDate = getTodoDueDate(taskId);
   const priority = getTodoPriority(taskId);
+  const isDeleted = isTodoDeleted(taskId);
 
   const getPriorityConfig = (priority) => {
     switch (priority) {
@@ -31,6 +40,7 @@ const TaskName = ({ children, taskId }) => {
       <motion.label
         className={`relative break-all font-todo lg:text-xl ${
           isChecked ? "line-through" : ""
+        } ${isDeleted ? "text-color-delete-btn" : ""}
         } text-color-text`}
         htmlFor={taskId}
         animate={{
@@ -49,12 +59,12 @@ const TaskName = ({ children, taskId }) => {
       <div className="flex items-center space-x-2 mt-1">
         {dueDate && (
           <div className="flex items-center space-x-1">
-            <CiCalendar className="h-4 w-4 fill-color-primary-btn" />
+            <CiCalendar className="h-5 w-5 fill-color-text" />
             <div
               id={`date-${taskId}`}
               className="font-todo text-xs text-color-text"
             >
-              {dueDate}
+              {formatDate(dueDate)}
             </div>
           </div>
         )}

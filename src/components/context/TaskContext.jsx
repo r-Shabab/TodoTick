@@ -42,6 +42,10 @@ export const TaskProvider = ({ children }) => {
     return todos.find(todo => todo.id === id)?.completed || false;
   };
 
+  const isTodoDeleted = (id) => {
+    return todos.find(todo => todo.id === id)?.deleted || false;
+  };
+
   const toggleCheck = (id) => {
     setTodos(prevTodos =>
       prevTodos.map(todo =>
@@ -67,6 +71,7 @@ export const TaskProvider = ({ children }) => {
       deleteTodo,
       togglePinTodo,
       isTodoChecked, 
+      isTodoDeleted,
       toggleCheck,
       getTodoDueDate, 
       getTodoPriority 
