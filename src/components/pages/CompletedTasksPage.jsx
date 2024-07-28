@@ -1,5 +1,5 @@
 const CompletedTasksPage = () => {
-  return <div>CompletedTasksPage</div>;
+  return (<div>CompletedTasksPage</div>);
 };
 
 export default CompletedTasksPage;
