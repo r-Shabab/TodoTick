@@ -9,8 +9,8 @@ import { RiDeleteBinLine } from "react-icons/ri";
 // eslint-disable-next-line react/prop-types
 const TaskLayout = ({ taskId, children, isChecked }) => {
   return (
-    <div className="flex w-full items-center space-x-4 px-2">
-      <TaskProvider taskId={taskId}>
+    <div className="flex w-full items-center space-x-4 px-6">
+      
         <div className="relative flex w-[2%] items-center justify-end">
           <TaskCheckbox />
         </div>
@@ -20,13 +20,13 @@ const TaskLayout = ({ taskId, children, isChecked }) => {
         </div>
         <div className="flex w-[5%] justify-center space-x-5 px-2">
           <button>
-            <AiOutlinePushpin className="h-4 w-4 fill-color-text lg:h-7 lg:w-7" />
+            <AiOutlinePushpin className="h-4 w-4 fill-color-text lg:h-7 lg:w-7 hover:fill-yellow-400 transition-all duration-0" />
           </button>
           <button>
-            <RiDeleteBinLine className="h-4 w-4 fill-color-delete-btn lg:h-7 lg:w-7" />
+            <RiDeleteBinLine className="h-4 w-4 fill-color-text hover:fill-color-delete-btn lg:h-7 lg:w-7 transition-all duration-0" />
           </button>
         </div>
-      </TaskProvider>
+     
     </div>
   );
 };
