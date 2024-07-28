@@ -9,7 +9,7 @@
     --background: 0deg 0% 93%;
     --tasks-bg: 0deg 0% 100%;
     --menu: 203deg 100% 94%;
-    --primary-btn: 204deg 57% 46%;
+    --primary: 204deg 57% 36%;
     --priority-btn: 284deg 28% 45%;
     --duedate-btn: 228deg 17% 40%;
     --edit-btn: 164deg 63% 38%;
@@ -21,11 +21,11 @@
     --high-priority: 5deg 71% 55%;
   }
   :root[data-theme="dark"] {
-    --sidebar: 0deg 0% 2%;
+    --sidebar: 0deg 0% 7%;
     --background: 0deg 0% 10%;
     --tasks-bg: 0deg 0% 17%;
     --menu: 215deg 17% 35%;
-    --primary-btn: 204deg 57% 46%;
+    --primary: 204deg 57% 36%;
     --priority-btn: 284deg 28% 45%;
     --duedate-btn: 228deg 17% 40%;
     --edit-btn: 164deg 63% 38%;

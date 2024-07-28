@@ -20,7 +20,7 @@ const Searchbar = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             id="default-search"
-            className="block h-12 w-full appearance-none rounded-lg border border-color-sidebar/50 bg-color-tasks-bg pl-12 pr-4 font-todo text-lg text-color-text shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn lg:h-14"
+            className="block h-12 w-full appearance-none rounded-lg border border-color-sidebar/50 bg-color-tasks-bg pl-12 pr-4 font-todo text-lg text-color-text shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary lg:h-14"
             placeholder="Search..."
             required
           />

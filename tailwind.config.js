@@ -11,7 +11,7 @@ export default {
         "color-background": "hsl(var(--background) / <alpha-value>)",
         "color-menu": "hsl(var(--menu) / <alpha-value>)",
         "color-tasks-bg": "hsl(var(--tasks-bg) / <alpha-value>)",
-        "color-primary-btn": "hsl(var(--primary-btn) / <alpha-value>)",
+        "color-primary": "hsl(var(--primary) / <alpha-value>)",
         "color-priority-btn": "hsl(var(--priority-btn) / <alpha-value>)",
         "color-due-date-btn": "hsl(var(--due-date-btn) / <alpha-value>)",
         "color-edit-btn": "hsl(var(--edit-btn) / <alpha-value>)",

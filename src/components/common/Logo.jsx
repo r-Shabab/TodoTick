@@ -23,17 +23,17 @@ export const Logo = () => {
           r={40}
           width="80"
           height="80"
-          fill="none"
-          stroke="#0095D9"
+          fill="#f5f5f5"
+          stroke="#276690"
           strokeWidth="6"
-          color="#276792"
+          color="#276690"
         />
 
         {/* Animated checkmark */}
         <motion.path
           d="M 27 50 L 42 68 L 70 30"
           fill="none"
-          stroke="#0095D9"
+          stroke="#276690"
           strokeWidth="6"
           initial="unchecked"
           animate="checked"
@@ -45,7 +45,7 @@ export const Logo = () => {
         initial={{ x: 0 }}
         animate={{ x: [0, 50, 0] }}
         transition={{ delay: 1.3, duration: 0.3 }}
-        className="font-logo font-semibold tracking-tighter text-color-primary-btn transition-all duration-100 xl:text-2xl 2xl:text-4xl"
+        className="font-logo font-semibold tracking-tighter text-color-primary transition-all duration-100 xl:text-2xl 2xl:text-4xl"
       >
         TodoTick
       </motion.h1>

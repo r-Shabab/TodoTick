@@ -91,7 +91,7 @@ export const AddTaskModal = ({ show, onClose }) => {
                 <input
                   ref={inputRef}
                   type="text"
-                  className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-4 pl-10 pr-4 font-todo text-base text-color-text shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn lg:text-xl xl:pl-14"
+                  className="block h-16 w-full rounded-lg border border-color-background bg-color-background py-4 pl-10 pr-4 font-todo text-base text-color-text shadow-md focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary lg:text-xl xl:pl-14"
                   placeholder="Add New Task..."
                   value={task}
                   onChange={(e) => setTask(e.target.value)}
@@ -120,7 +120,7 @@ export const AddTaskModal = ({ show, onClose }) => {
             </button>
             <button
               type="submit"
-              className="rounded bg-color-primary-btn px-8 py-2 font-button text-sm text-white hover:bg-blue-600 xl:px-10 xl:py-4 xl:text-lg"
+              className="rounded bg-color-primary px-8 py-2 font-button text-sm text-white hover:bg-blue-600 xl:px-10 xl:py-4 xl:text-lg"
             >
               Add
             </button>

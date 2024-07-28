@@ -52,7 +52,7 @@ const SortByDropDown = () => {
         <motion.button
           whileTap={{ scale: 0.95 }}
           type="button"
-          className="flex w-full items-center space-x-10 rounded-md bg-color-tasks-bg px-4 py-2 font-button text-color-text shadow-md hover:bg-color-sidebar/75 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn xl:px-8 xl:py-3"
+          className="flex w-full items-center space-x-10 rounded-md bg-color-tasks-bg px-4 py-2 font-button text-color-text shadow-md hover:bg-color-sidebar/75 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary xl:px-8 xl:py-3"
           id="options-menu"
           onClick={toggleDropdown}
         >

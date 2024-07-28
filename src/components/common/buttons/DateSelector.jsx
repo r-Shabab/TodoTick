@@ -16,7 +16,7 @@ const DateSelector = ({ selectedDate, setSelectedDate }) => {
       <DatePicker
         selected={selectedDate}
         onChange={(date) => setSelectedDate(date)}
-        className="w-full rounded-md border-2 border-color-background py-2 pl-10 pr-10 text-color-text shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn"
+        className="w-full rounded-md border-2 border-color-background py-2 pl-10 pr-10 text-color-text shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary"
         popperClassName="rounded-lg text-color-text bg-color-tasks-bg"
         calendarClassName="bg-color-sidebar shadow-lg rounded-lg"
         dayClassName={(date) => "hover:bg-color-sidebar/60 rounded-full"}
@@ -36,10 +36,10 @@ const CustomInput = React.forwardRef(({ value, onClick, onChange }, ref) => (
       onChange={onChange}
       onClick={onClick}
       ref={ref}
-      className="w-full rounded-md border-2 border-color-background py-2 pl-10 pr-10 text-color-text shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary-btn"
+      className="w-full rounded-md border-2 border-color-background py-2 pl-10 pr-10 text-color-text shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-color-primary"
       placeholder="Select a date"
     />
-    <IoIosCalendar className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 fill-color-primary-btn" />
+    <IoIosCalendar className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 fill-color-primary" />
     {value && (
       <button
         onClick={(e) => {
