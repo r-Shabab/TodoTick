@@ -2,10 +2,16 @@ import { useContext } from "react";
 import TaskLayout from "../tasks/TaskLayout";
 import { MdDoneAll } from "react-icons/md";
 import TaskContext from "../context/TaskContext";
-// import { TbPinnedFilled } from "react-icons/tb";
+
 const AllTasksPage = () => {
-  // eslint-disable-next-line no-unused-vars
   const { todos } = useContext(TaskContext);
+
+  const sortedTodos = todos
+    .filter(todo => !todo.deleted)
+    .sort((a, b) => {
+      if (a.pinned === b.pinned) return 0;
+      return a.pinned ? -1 : 1;
+    });
 
   return (
     <section className="lg:pt-3.5">
@@ -20,11 +26,8 @@ const AllTasksPage = () => {
         </div>
         <div>
           <ul className="flex flex-col space-y-4">
-            {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className="w-full rounded-lg bg-color-tasks-bg py-3"
-              >
+            {sortedTodos.map((todo) => (
+              <li key={todo.id} className="w-full rounded-lg bg-color-tasks-bg py-3">
                 <div className="flex items-center py-2">
                   <TaskLayout taskId={todo.id}>{todo.task}</TaskLayout>
                 </div>

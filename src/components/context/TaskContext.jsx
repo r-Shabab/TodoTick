@@ -1,150 +1,75 @@
-import { createContext, useState, useCallback } from "react";
-import { v4 as uuidv4 } from "uuid";
+// TaskContext.jsx
+import React, { createContext, useState, useEffect } from 'react';
+
 const TaskContext = createContext();
 
-// eslint-disable-next-line react/prop-types
 export const TaskProvider = ({ children }) => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const storedTodos = localStorage.getItem('todos');
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  });
 
-  const formatDateToString = (date) => {
-    if (!date) return null;
-    const d = new Date(date);
-    return d
-      .toLocaleDateString("en-GB", { day: "numeric", month: "long" })
-      .split(" ")
-      .join(" ");
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  const addTodo = (newTodo) => {
+    const todoToAdd = {
+      id: Date.now(),
+      task: newTodo.task,
+      priority: newTodo.priority,
+      dueDate: newTodo.selectedDate,
+      completed: false,
+      deleted: false,
+      pinned: false,
+    };
+    setTodos(prevTodos => [...prevTodos, todoToAdd]);
   };
 
-  const addTodo = useCallback((newTodo) => {
-    setTodos((prevTodos) => [
-      ...prevTodos,
-      {
-        ...newTodo,
-        id: uuidv4(),
-        isChecked: false,
-        isPinned: false,
-        priority: null,
-        dueDate: formatDateToString(newTodo.dueDate),
-        dateCreated: formatDateToString(new Date()),
-      },
-    ]);
-  }, []);
+  const deleteTodo = (id) => {
+    setTodos(prevTodos => prevTodos.map(todo => 
+      todo.id === id ? { ...todo, deleted: true } : todo
+    ));
+  };
 
-  const deleteTodo = useCallback((id) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-  }, []);
+  const togglePinTodo = (id) => {
+    setTodos(prevTodos => prevTodos.map(todo => 
+      todo.id === id ? { ...todo, pinned: !todo.pinned } : todo
+    ));
+  };
 
-  const toggleCheck = useCallback((id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, isChecked: !todo.isChecked } : todo,
-      ),
+  const isTodoChecked = (id) => {
+    return todos.find(todo => todo.id === id)?.completed || false;
+  };
+
+  const toggleCheck = (id) => {
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
     );
-  }, []);
+  };
 
-  const togglePinned = useCallback((id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, isPinned: !todo.isPinned } : todo,
-      ),
-    );
-  }, []);
+  const getTodoDueDate = (id) => {
+    const todo = todos.find(todo => todo.id === id);
+    return todo?.dueDate ? new Date(todo.dueDate).toDateString() : null;
+  };
 
-  const setDueDate = useCallback((id, dueDate) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, dueDate: dueDate } : todo,
-      ),
-    );
-  }, []);
-
-  const setPriority = useCallback((id, priority) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, priority: priority } : todo,
-      ),
-    );
-  }, []);
-
-  const getTodobyId = useCallback(
-    (id) => {
-      return todos.find((todo) => todo.id === id);
-    },
-    [todos],
-  );
-
-  const isTodoChecked = useCallback(
-    (id) => {
-      const todo = todos.find((todo) => todo.id === id);
-      return todo ? todo.isChecked : false;
-    },
-    [todos],
-  );
-
-  const isTodoPinned = useCallback(
-    (id) => {
-      const todo = todos.find((todo) => todo.id === id);
-      return todo ? todo.isPinned : false;
-    },
-    [todos],
-  );
-
-  const getTodoPriority = useCallback(
-    (id) => {
-      const todo = todos.find((todo) => todo.id === id);
-      return todo ? todo.priority : null;
-    },
-    [todos],
-  );
-
-  const getPriorityColor = useCallback((priority) => {
-    switch (priority) {
-      case "low":
-        return "blue";
-      case "medium":
-        return "yellow";
-      case "high":
-        return "red";
-      default:
-        return "gray"; // Default color when no priority is set
-    }
-  }, []);
-
-  const getTodoDueDate = useCallback(
-    (id) => {
-      const todo = todos.find((todo) => todo.id === id);
-      return todo ? todo.dueDate : null;
-    },
-    [todos],
-  );
-
-  const getTodoCreatedDate = useCallback(
-    (id) => {
-      const todo = todos.find((todo) => todo.id === id);
-      return todo ? todo.dateCreated : null;
-    },
-    [todos],
-  );
+  const getTodoPriority = (id) => {
+    return todos.find(todo => todo.id === id)?.priority || null;
+  };
 
   return (
-    <TaskContext.Provider
-      value={{
-        todos,
-        addTodo,
-        deleteTodo,
-        toggleCheck,
-        togglePinned,
-        setDueDate,
-        setPriority,
-        getTodobyId,
-        isTodoChecked,
-        isTodoPinned,
-        getTodoPriority,
-        getPriorityColor,
-        getTodoDueDate,
-        getTodoCreatedDate,
-      }}
-    >
+    <TaskContext.Provider value={{ 
+      todos, 
+      addTodo, 
+      deleteTodo,
+      togglePinTodo,
+      isTodoChecked, 
+      toggleCheck,
+      getTodoDueDate, 
+      getTodoPriority 
+    }}>
       {children}
     </TaskContext.Provider>
   );

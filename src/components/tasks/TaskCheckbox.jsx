@@ -21,7 +21,7 @@ const tickVariants = {
   },
 };
 
-const TaskCheckbox = (taskId) => {
+const TaskCheckbox = ({ taskId }) => {  // Corrected prop destructuring
   const { isTodoChecked, toggleCheck } = useContext(TaskContext);
 
   const isChecked = isTodoChecked(taskId);
@@ -29,11 +29,12 @@ const TaskCheckbox = (taskId) => {
   const handleCheckbox = () => {
     toggleCheck(taskId);
   };
+
   return (
     <div className="relative flex items-center">
       <input
         type="checkbox"
-        className={`relative h-5 w-5 cursor-pointer appearance-none rounded-full border-2 border-color-primary-btn bg-color-background/30 transition-all duration-500 checked:border-[#276792] checked:bg-color-primary-btn lg:h-7 lg:w-7`}
+        className={`relative h-5 w-5 cursor-pointer appearance-none rounded-full border-2 border-color-primary bg-color-background/30 transition-all duration-500 checked:border-color-primary checked:bg-color-primary lg:h-6 lg:w-6`}
         onChange={handleCheckbox}
         id={taskId}
         checked={isChecked}
@@ -45,7 +46,7 @@ const TaskCheckbox = (taskId) => {
           viewBox="0 0 25 25"
           strokeWidth="3"
           stroke="currentColor"
-          className="h-5 w-5"
+          className="h-3 w-3 lg:h-4 lg:w-4"
           initial={false}
           animate={isChecked ? "checked" : "unchecked"}
         >
@@ -60,4 +61,5 @@ const TaskCheckbox = (taskId) => {
     </div>
   );
 };
+
 export default TaskCheckbox;
