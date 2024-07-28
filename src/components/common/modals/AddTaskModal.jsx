@@ -100,7 +100,7 @@ export const AddTaskModal = ({ show, onClose }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col xl:flex-row xl:items-center xl:space-x-8">
+          <div className="flex flex-col justify-between xl:flex-row xl:items-center xl:space-x-8">
             <PrioritySelector />
             <DateSelector
               selectedDate={selectedDate}

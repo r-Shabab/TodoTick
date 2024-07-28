@@ -49,7 +49,7 @@ const CustomInput = React.forwardRef(({ value, onClick, onChange }, ref) => (
         className="absolute right-3 top-1/2 -translate-y-1/2"
         type="button"
       >
-        <IoCloseCircle className="h-5 w-5 fill-red-500" />
+        <IoCloseCircle className="h-5 w-5 fill-color-primary" />
       </button>
     )}
   </div>

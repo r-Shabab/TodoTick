@@ -12,28 +12,28 @@ export default function PrioritySelector() {
       color: "transparent",
       value: null,
       iconColor: "text-gray-400",
-      tooltip: "None",
+      tooltip: "No Priority",
     },
     {
       label: "Low",
       color: "blue-500",
       value: "low",
       iconColor: "text-blue-500",
-      tooltip: "Low",
+      tooltip: "Low Priority",
     },
     {
       label: "Medium",
       color: "yellow-500",
       value: "medium",
       iconColor: "text-yellow-500",
-      tooltip: "Medium",
+      tooltip: "Medium Priority",
     },
     {
       label: "High",
       color: "red-500",
       value: "high",
       iconColor: "text-red-500",
-      tooltip: "High",
+      tooltip: "High Priority",
     },
   ];
 
