@@ -56,8 +56,9 @@ export const TaskProvider = ({ children }) => {
   };
 
   const getTodoPriority = (id) => {
-    return todos.find(todo => todo.id === id)?.priority || null;
-  };
+  const todo = todos.find(todo => todo.id === id);
+  return todo ? todo.priority : null;
+};
 
   return (
     <TaskContext.Provider value={{ 

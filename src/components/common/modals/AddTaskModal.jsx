@@ -33,6 +33,10 @@ export const AddTaskModal = ({ show, onClose }) => {
     setSelectedDate(null);
   };
 
+ const handlePriorityChange = (newPriority) => {
+    setPriority(newPriority);
+  };
+
   //handleSave
   const handleSave = (e) => {
     e.preventDefault();
@@ -101,7 +105,7 @@ export const AddTaskModal = ({ show, onClose }) => {
             </div>
           </div>
           <div className="flex flex-col justify-between xl:flex-row xl:items-center xl:space-x-8">
-            <PrioritySelector />
+             <PrioritySelector onPriorityChange={handlePriorityChange} />
             <DateSelector
               selectedDate={selectedDate}
               setSelectedDate={setSelectedDate}

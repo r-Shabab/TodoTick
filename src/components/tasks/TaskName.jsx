@@ -1,25 +1,30 @@
-// Label.jsx
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import TaskContext from "../context/TaskContext";
 import { CiCalendar } from "react-icons/ci";
 import { IoIosFlag } from "react-icons/io";
 
-// eslint-disable-next-line react/prop-types
 const TaskName = ({ children, taskId }) => {
-  const { isTodoChecked, getTodoDueDate, getTodoPriority } =
-    useContext(TaskContext);
+  const { isTodoChecked, getTodoDueDate, getTodoPriority } = useContext(TaskContext);
 
   const isChecked = isTodoChecked(taskId);
   const dueDate = getTodoDueDate(taskId);
   const priority = getTodoPriority(taskId);
 
-  const getPriorityText = (priority) => {
-    if (!priority) return null;
-    return priority.charAt(0).toUpperCase() + priority.slice(1);
+  const getPriorityConfig = (priority) => {
+    switch (priority) {
+      case 'low':
+        return { text: 'Low', color: 'text-blue-500', fillColor: 'fill-blue-500' };
+      case 'medium':
+        return { text: 'Medium', color: 'text-yellow-500', fillColor: 'fill-yellow-500' };
+      case 'high':
+        return { text: 'High', color: 'text-red-500', fillColor: 'fill-red-500' };
+      default:
+        return null;
+    }
   };
 
-  const priorityText = getPriorityText(priority);
+  const priorityConfig = getPriorityConfig(priority);
 
   return (
     <div className="flex flex-col">
@@ -41,35 +46,33 @@ const TaskName = ({ children, taskId }) => {
       >
         {children}
       </motion.label>
-      {(dueDate || priorityText) && (
-        <div className="bg-c flex items-center space-x-2">
-          {dueDate && (
-            <div className="flex items-center space-x-1">
-              <CiCalendar className="h-4 w-4 fill-color-primary-btn" />
-              <div
-                id={`date-${taskId}`}
-                className="font-todo text-xs text-color-text"
-              >
-                {dueDate}
-              </div>
+      <div className="flex items-center space-x-2 mt-1">
+        {dueDate && (
+          <div className="flex items-center space-x-1">
+            <CiCalendar className="h-4 w-4 fill-color-primary-btn" />
+            <div
+              id={`date-${taskId}`}
+              className="font-todo text-xs text-color-text"
+            >
+              {dueDate}
             </div>
-          )}
-          {dueDate && priorityText && (
-            <span className="text-color-text"> | </span>
-          )}
-          {priorityText && (
-            <div className="flex items-center space-x-1">
-              <IoIosFlag className="h-4 w-4 fill-color-delete-btn" />
-              <div
-                id={`priority-${taskId}`}
-                className="font-todo text-xs text-color-text"
-              >
-                {priorityText}
-              </div>
+          </div>
+        )}
+        {dueDate && priorityConfig && (
+          <span className="text-color-text"> | </span>
+        )}
+        {priorityConfig && (
+          <div className="flex items-center space-x-1">
+            <IoIosFlag className={`h-4 w-4 ${priorityConfig.fillColor}`} />
+            <div
+              id={`priority-${taskId}`}
+              className={`font-todo text-xs ${priorityConfig.color}`}
+            >
+              {priorityConfig.text}
             </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

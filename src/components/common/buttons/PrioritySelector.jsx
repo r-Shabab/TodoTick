@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
+import { useState } from 'react';
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { PiFlagPennant, PiFlagPennantFill } from "react-icons/pi";
-import { v4 as uuid } from "uuid";
-export default function PrioritySelector() {
+import { PiFlagPennantFill } from "react-icons/pi";
+
+const PrioritySelector = ({ onPriorityChange }) => {
   const [selectedPriority, setSelectedPriority] = useState(null);
 
   const priorities = [
@@ -37,6 +36,11 @@ export default function PrioritySelector() {
     },
   ];
 
+  const handlePriorityChange = (value) => {
+    setSelectedPriority(value);
+    onPriorityChange(value);
+  };
+
   return (
     <div className="mb-4">
       <label className="sr-only mb-2 block font-title text-sm font-semibold text-color-text xl:text-lg">
@@ -48,8 +52,8 @@ export default function PrioritySelector() {
             whileTap={{
               scale: 0.9,
             }}
-            key={uuid()}
-            onClick={() => setSelectedPriority(value)}
+            key={value}
+            onClick={() => handlePriorityChange(value)}
             className={`flex cursor-pointer items-center justify-center rounded-lg p-3 hover:bg-color-background/80 ${
               selectedPriority === value ? `bg-color-background shadow-lg` : ""
             }`}
@@ -61,4 +65,6 @@ export default function PrioritySelector() {
       </div>
     </div>
   );
-}
+};
+
+export default PrioritySelector;
