@@ -8,6 +8,7 @@ export const TaskProvider = ({ children }) => {
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : [];
   });
+  const [sortOption, setSortOption] = useState("");
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -82,14 +83,6 @@ export const TaskProvider = ({ children }) => {
     );
   };
 
-  const moveToCompleted = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, movedToCompleted: true } : todo,
-      ),
-    );
-  };
-
   const getTodoDueDate = (id) => {
     const todo = todos.find((todo) => todo.id === id);
     return todo?.dueDate ? new Date(todo.dueDate).toDateString() : null;
@@ -98,6 +91,40 @@ export const TaskProvider = ({ children }) => {
   const getTodoPriority = (id) => {
     const todo = todos.find((todo) => todo.id === id);
     return todo ? todo.priority : null;
+  };
+
+  const sortTodos = (todos, sortOption) => {
+    return [...todos].sort((a, b) => {
+      switch (sortOption) {
+        case "priorityHighLow":
+          return getPriorityValue(b.priority) - getPriorityValue(a.priority);
+        case "priorityLowHigh":
+          return getPriorityValue(a.priority) - getPriorityValue(b.priority);
+        case "dueDateRecentOld":
+          return new Date(a.dueDate) - new Date(b.dueDate);
+        case "dueDateOldRecent":
+          return new Date(b.dueDate) - new Date(a.dueDate);
+        default:
+          return 0;
+      }
+    });
+  };
+
+  const getPriorityValue = (priority) => {
+    switch (priority) {
+      case "high":
+        return 3;
+      case "medium":
+        return 2;
+      case "low":
+        return 1;
+      default:
+        return 0;
+    }
+  };
+
+  const setSorting = (option) => {
+    setSortOption(option);
   };
 
   return (
@@ -109,11 +136,13 @@ export const TaskProvider = ({ children }) => {
         undoDelete,
         togglePinTodo,
         isTodoChecked,
-        moveToCompleted,
         isTodoDeleted,
         toggleCheck,
         getTodoDueDate,
         getTodoPriority,
+        sortTodos,
+        setSorting,
+        sortOption,
       }}
     >
       {children}

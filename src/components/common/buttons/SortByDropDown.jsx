@@ -1,18 +1,19 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { GoSortDesc } from "react-icons/go";
 import { v4 as uuidv4 } from "uuid";
+import TaskContext from "../../context/TaskContext";
 const SortByDropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [sortOption, setSortOption] = useState("");
+  const { sortOption, setSorting } = useContext(TaskContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const handleOptionClick = (option) => {
-    setSortOption(option.label);
+    setSorting(option.value);
     setIsOpen(false);
   };
 
@@ -22,6 +23,13 @@ const SortByDropDown = () => {
     { label: "Due Date (Recent > Old)", value: "dueDateRecentOld" },
     { label: "Due Date (Old > Recent)", value: "dueDateOldRecent" },
   ];
+
+  const getSelectedLabel = () => {
+    const selectedOption = options.find(
+      (option) => option.value === sortOption,
+    );
+    return selectedOption ? selectedOption.label : "";
+  };
 
   const menuVariants = {
     closed: {
@@ -57,7 +65,7 @@ const SortByDropDown = () => {
           onClick={toggleDropdown}
         >
           <div className="flex items-center space-x-1 text-sm lg:text-lg">
-            <span>{`Sort By ${sortOption ? `: ${sortOption}` : ""}`}</span>
+            <span>{`Sort By ${sortOption ? `: ${getSelectedLabel()}` : ""}`}</span>
             <span>{!sortOption && <GoSortDesc className="h-5 w-5" />}</span>
           </div>
           <span>
