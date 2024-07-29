@@ -5,9 +5,10 @@ import TaskContext from "../context/TaskContext";
 import { AiFillDelete } from "react-icons/ai";
 
 const DeletedTasksPage = () => {
-  const { todos } = useContext(TaskContext);
+  const { todos, sortOption, sortTodos } = useContext(TaskContext);
 
-  const deletedTodos = todos.filter(todo => todo.deleted);
+  const sortedTodos = sortTodos(todos, sortOption);
+  const deletedTodos = sortedTodos.filter((todo) => todo.deleted);
 
   const [isDeletedOpen, setDeletedOpen] = useState(true);
 
@@ -17,20 +18,29 @@ const DeletedTasksPage = () => {
       {deletedTodos.length > 0 && (
         <div className="mx-auto w-full space-y-3">
           <div
-            className="rounded-md bg-color-tasks-bg p-4 shadow-md hover:cursor-pointer hover:bg-color-sidebar/70 flex items-center justify-between"
+            className="flex items-center justify-between rounded-md bg-color-tasks-bg p-4 shadow-md hover:cursor-pointer hover:bg-color-sidebar/70"
             onClick={() => setDeletedOpen(!isDeletedOpen)}
           >
             <div className="flex items-center space-x-2">
               <AiFillDelete className="size-7 text-red-500" />
-              <span className="font-title font-semibold text-lg text-color-text">Deleted</span>
+              <span className="font-title text-lg font-semibold text-color-text">
+                Deleted
+              </span>
             </div>
-            {isDeletedOpen ? <MdExpandLess className="text-gray-500 size-7" /> : <MdExpandMore className="text-gray-500 size-7" />}
+            {isDeletedOpen ? (
+              <MdExpandLess className="size-7 text-gray-500" />
+            ) : (
+              <MdExpandMore className="size-7 text-gray-500" />
+            )}
           </div>
           {isDeletedOpen && (
             <div>
               <ul className="flex flex-col space-y-4">
-                {deletedTodos.map(todo => (
-                  <li key={todo.id} className="w-full rounded-lg bg-color-tasks-bg border-2 border-color-delete-btn/40 py-3">
+                {deletedTodos.map((todo) => (
+                  <li
+                    key={todo.id}
+                    className="w-full rounded-lg border-2 border-color-delete-btn/40 bg-color-tasks-bg py-3"
+                  >
                     <div className="flex items-center py-2">
                       <TaskLayout taskId={todo.id}>{todo.task}</TaskLayout>
                     </div>

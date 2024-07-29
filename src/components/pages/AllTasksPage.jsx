@@ -7,10 +7,6 @@ import { BsListUl, BsPinFill } from "react-icons/bs";
 const AllTasksPage = () => {
   const { todos, sortOption, sortTodos } = useContext(TaskContext);
 
-  // const sortedTodos = todos
-  //   .filter(todo => !todo.deleted )
-  //   .sort((a, b) => (a.pinned === b.pinned ? 0 : a.pinned ? -1 : 1));
-
   // Filter todos for each section
   const sortedTodos = sortTodos(todos, sortOption);
   const pinnedTodos = sortedTodos.filter(
