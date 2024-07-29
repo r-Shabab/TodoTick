@@ -36,13 +36,10 @@ export const TaskProvider = ({ children }) => {
       ),
     );
 
-    // Set a timeout to permanently delete the task after 10 minutes
-    setTimeout(
-      () => {
-        setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-      },
-      10 * 60 * 1000,
-    ); // 10 minutes in milliseconds
+    // Set a timeout to permanently delete the task after 2 minutes
+    setTimeout(() => {
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    }, 120000); // 2 minutes in milliseconds
   };
 
   const undoDelete = (id) => {

@@ -8,12 +8,13 @@ const formatDate = (dateString) => {
   if (!dateString) return null;
 
   const date = new Date(dateString);
-  const options = { weekday: 'short', month: 'long', day: 'numeric' };
+  const options = { weekday: "short", month: "long", day: "numeric" };
   return date.toLocaleDateString(undefined, options);
 };
 
 const TaskName = ({ children, taskId }) => {
-  const { isTodoChecked, getTodoDueDate, getTodoPriority , isTodoDeleted } = useContext(TaskContext);
+  const { isTodoChecked, getTodoDueDate, getTodoPriority, isTodoDeleted } =
+    useContext(TaskContext);
 
   const isChecked = isTodoChecked(taskId);
   const dueDate = getTodoDueDate(taskId);
@@ -22,12 +23,24 @@ const TaskName = ({ children, taskId }) => {
 
   const getPriorityConfig = (priority) => {
     switch (priority) {
-      case 'low':
-        return { text: 'Low', color: 'text-blue-500', fillColor: 'fill-blue-500' };
-      case 'medium':
-        return { text: 'Medium', color: 'text-yellow-500', fillColor: 'fill-yellow-500' };
-      case 'high':
-        return { text: 'High', color: 'text-red-500', fillColor: 'fill-red-500' };
+      case "low":
+        return {
+          text: "Low",
+          color: "text-blue-500",
+          fillColor: "fill-blue-500",
+        };
+      case "medium":
+        return {
+          text: "Medium",
+          color: "text-yellow-500",
+          fillColor: "fill-yellow-500",
+        };
+      case "high":
+        return {
+          text: "High",
+          color: "text-red-500",
+          fillColor: "fill-red-500",
+        };
       default:
         return null;
     }
@@ -40,11 +53,10 @@ const TaskName = ({ children, taskId }) => {
       <motion.label
         className={`relative break-all font-todo lg:text-xl ${
           isChecked ? "line-through" : ""
-        } ${isDeleted ? "text-color-delete-btn" : ""}
-        } text-color-text`}
+        } ${isDeleted ? "text-color-delete-btn" : ""} } text-color-text`}
         htmlFor={taskId}
         animate={{
-          x: isChecked ? [0, -5, 0] : [0, 5, 0],
+          x: isChecked ? [0, 7, 0] : [0, -7, 0],
           color: isChecked ? "#a1a1aa" : "",
           textDecorationLine: isChecked ? "line-through" : "none",
         }}
@@ -56,13 +68,13 @@ const TaskName = ({ children, taskId }) => {
       >
         {children}
       </motion.label>
-      <div className="flex items-center space-x-2 mt-1">
+      <div className="mt-1 flex items-center space-x-2">
         {dueDate && (
           <div className="flex items-center space-x-1">
             <CiCalendar className="h-5 w-5 fill-color-text" />
             <div
               id={`date-${taskId}`}
-              className="font-todo text-xs text-color-text"
+              className="font-todo text-xs text-color-text lg:font-semibold"
             >
               {formatDate(dueDate)}
             </div>
@@ -76,7 +88,7 @@ const TaskName = ({ children, taskId }) => {
             <IoIosFlag className={`h-4 w-4 ${priorityConfig.fillColor}`} />
             <div
               id={`priority-${taskId}`}
-              className={`font-todo text-xs ${priorityConfig.color}`}
+              className={`font-todo text-xs lg:font-semibold ${priorityConfig.color}`}
             >
               {priorityConfig.text}
             </div>
