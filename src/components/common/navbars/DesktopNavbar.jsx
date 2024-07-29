@@ -14,21 +14,7 @@ import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // eslint-disable-next-line react/prop-types
-const DesktopNavbar = ({ expanded, setExpanded }) => {
-  const [theme, setTheme] = useState("light");
-
-  useEffect(() => {
-    const initialTheme =
-      document.documentElement.getAttribute("data-theme") || "light";
-    setTheme(initialTheme);
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-  };
-
+const DesktopNavbar = ({ expanded, setExpanded, theme, toggleTheme }) => {
   return (
     <>
       <nav className="fixed left-0 right-0 top-0 z-30 flex h-16 w-full items-center justify-center bg-color-sidebar shadow-md xl:hidden">
