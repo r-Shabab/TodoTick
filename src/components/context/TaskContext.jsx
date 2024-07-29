@@ -26,9 +26,20 @@ export const TaskProvider = ({ children }) => {
     setTodos(prevTodos => [...prevTodos, todoToAdd]);
   };
 
-  const deleteTodo = (id) => {
+   const deleteTodo = (id) => {
     setTodos(prevTodos => prevTodos.map(todo => 
-      todo.id === id ? { ...todo, deleted: true } : todo
+      todo.id === id ? { ...todo, deleted: true, deletedAt: Date.now() } : todo
+    ));
+
+    // Set a timeout to permanently delete the task after 10 minutes
+    setTimeout(() => {
+      setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
+    }, 10 * 60 * 1000); // 10 minutes in milliseconds
+  };
+
+  const undoDelete = (id) => {
+    setTodos(prevTodos => prevTodos.map(todo => 
+      todo.id === id ? { ...todo, deleted: false, deletedAt: null } : todo
     ));
   };
 
@@ -49,7 +60,15 @@ export const TaskProvider = ({ children }) => {
   const toggleCheck = (id) => {
     setTodos(prevTodos =>
       prevTodos.map(todo =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo.id === id ? { ...todo, completed: !todo.completed, completedAt: todo.completed ? null : Date.now() } : todo
+      )
+    );
+  };
+
+  const moveToCompleted = (id) => {
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === id ? { ...todo, movedToCompleted: true } : todo
       )
     );
   };
@@ -69,8 +88,10 @@ export const TaskProvider = ({ children }) => {
       todos, 
       addTodo, 
       deleteTodo,
+      undoDelete,
       togglePinTodo,
       isTodoChecked, 
+      moveToCompleted,
       isTodoDeleted,
       toggleCheck,
       getTodoDueDate, 

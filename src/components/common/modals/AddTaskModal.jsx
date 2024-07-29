@@ -105,14 +105,17 @@ export const AddTaskModal = ({ show, onClose }) => {
             </div>
           </div>
           <div className="flex flex-col justify-between xl:flex-row xl:items-center xl:space-x-8">
-             <PrioritySelector onPriorityChange={handlePriorityChange} />
+            <div className="flex flex-col space-y-2">
+            <label className="font-title text-color-text ">Priority</label>
+            <PrioritySelector onPriorityChange={handlePriorityChange} />
+            </div>
+            <div className="flex flex-col space-y-2">
+            <label className="font-title text-color-text ">Due Date</label>
             <DateSelector
               selectedDate={selectedDate}
               setSelectedDate={setSelectedDate}
-            />
-            {/* <DateButton onDateChange={handleDateChange}>
-              {dueDate && <p>Due Date: {new Date(dueDate).toDateString()}</p>}
-            </DateButton> */}
+              />
+              </div>
           </div>
           <div className="flex justify-end space-x-5">
             <button

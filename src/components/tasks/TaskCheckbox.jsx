@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import TaskContext from "../context/TaskContext";
 
 const tickVariants = {
@@ -21,14 +20,24 @@ const tickVariants = {
   },
 };
 
-const TaskCheckbox = ({ taskId }) => {  // Corrected prop destructuring
-  const { isTodoChecked, toggleCheck } = useContext(TaskContext);
+const TaskCheckbox = ({ taskId }) => {
+  const { isTodoChecked, toggleCheck, moveToCompleted } = useContext(TaskContext);
 
   const isChecked = isTodoChecked(taskId);
 
   const handleCheckbox = () => {
     toggleCheck(taskId);
   };
+
+   useEffect(() => {
+    if (isChecked) {
+      const timer = setTimeout(() => {
+        moveToCompleted(taskId);
+      }, 500); // Adjust this time to match your animation duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [isChecked, taskId, moveToCompleted]);
 
   return (
     <div className="relative flex items-center">
