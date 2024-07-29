@@ -30,50 +30,56 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
   };
 
   return (
-    <aside
-      className={`fixed h-screen transition-all duration-300 ${
-        expanded ? "hidden xl:flex xl:w-72 2xl:w-96" : "w-0 xl:w-28"
-      } z-20`}
-    >
-      <nav
-        className={`flex h-full w-full flex-col justify-between bg-color-sidebar px-6 py-6 font-nav text-xl shadow-md transition-transform ${
-          expanded ? "translate-x-0" : "-translate-x-full"
-        } xl:translate-x-0`}
+    <>
+      <nav className="fixed left-0 right-0 top-0 z-30 flex h-16 w-full items-center justify-center bg-color-sidebar shadow-md xl:hidden">
+        <Link to="/" className="hover:cursor-pointer">
+          <Logo />
+        </Link>
+      </nav>
+      <aside
+        className={`fixed h-screen transition-all duration-300 ${
+          expanded ? "hidden xl:flex xl:w-72 2xl:w-96" : "w-0 xl:w-28"
+        } z-20`}
       >
-        <div className="space-y-4">
-          <div
-            className={`flex w-full items-center overflow-hidden py-2 transition-all ${
-              expanded ? "justify-between" : "justify-center"
-            }`}
-          >
-            <Link
-              to="/"
-              className={`overflow-hidden transition-all ${
-                expanded ? "w-full" : "w-0"
+        <nav
+          className={`flex h-full w-full flex-col justify-between bg-color-sidebar px-6 py-6 font-nav text-xl shadow-md transition-transform ${
+            expanded ? "translate-x-0" : "-translate-x-full"
+          } xl:translate-x-0`}
+        >
+          <div className="space-y-4">
+            <div
+              className={`flex w-full items-center overflow-hidden py-2 transition-all ${
+                expanded ? "justify-between" : "justify-center"
               }`}
             >
-              <Logo />
-            </Link>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ ease: "backInOut", duration: 0.5 }}
-              onClick={() => setExpanded((curr) => !curr)}
-              className={`flex items-center justify-center rounded-lg hover:scale-110 ${
-                expanded ? "" : "w-full"
-              }`}
-            >
-              {expanded ? (
-                <GoSidebarExpand className="h-7 w-7 text-color-text" />
-              ) : (
-                <GoSidebarCollapse className="h-7 w-7 text-color-text" />
-              )}
-            </motion.button>
-          </div>
-          <div className="space-y-3 rounded-lg">
-            {/* <div
+              <Link
+                to="/"
+                className={`overflow-hidden transition-all ${
+                  expanded ? "w-full" : "w-0"
+                }`}
+              >
+                <Logo />
+              </Link>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ ease: "backInOut", duration: 0.5 }}
+                onClick={() => setExpanded((curr) => !curr)}
+                className={`flex items-center justify-center rounded-lg hover:scale-110 ${
+                  expanded ? "" : "w-full"
+                }`}
+              >
+                {expanded ? (
+                  <GoSidebarExpand className="h-7 w-7 text-color-text" />
+                ) : (
+                  <GoSidebarCollapse className="h-7 w-7 text-color-text" />
+                )}
+              </motion.button>
+            </div>
+            <div className="space-y-3 rounded-lg">
+              {/* <div
               className={`overflow-hidden rounded-lg transition-all ${
                 expanded ? "w-full p-2" : ""
               }`}
@@ -86,139 +92,140 @@ const DesktopNavbar = ({ expanded, setExpanded }) => {
                 MENU
               </h3>
             </div> */}
-            <motion.ul
-              initial={{ x: -500 }}
-              animate={{ x: 0 }}
-              transition={{ ease: "backInOut", duration: 0.5 }}
-              className="space-y-2 rounded-lg"
-            >
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <motion.ul
+                initial={{ x: -500 }}
+                animate={{ x: 0 }}
+                transition={{ ease: "backInOut", duration: 0.5 }}
+                className="space-y-2 rounded-lg"
               >
-                <NavLink
-                  to="all-tasks"
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "bg-color-menu" : ""
-                    } flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${
-                      expanded ? "justify-start" : "justify-center"
-                    }`
-                  }
+                <motion.li
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <MdOutlineChecklist className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${
-                      expanded ? "w-full" : "hidden"
-                    }`}
+                  <NavLink
+                    to="all-tasks"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "bg-color-menu" : ""
+                      } flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 hover:text-color-text lg:text-xl ${
+                        expanded ? "justify-start" : "justify-center"
+                      }`
+                    }
                   >
-                    All Tasks
-                  </span>
-                </NavLink>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <NavLink
-                  to="/pinned-tasks"
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "bg-color-menu" : ""
-                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
-                      expanded ? "justify-start" : "justify-center"
-                    }`
-                  }
+                    <MdOutlineChecklist className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${
+                        expanded ? "w-full" : "hidden"
+                      }`}
+                    >
+                      All Tasks
+                    </span>
+                  </NavLink>
+                </motion.li>
+                <motion.li
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <BsPinAngle className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${
-                      expanded ? "w-full" : "hidden"
-                    }`}
+                  <NavLink
+                    to="/pinned-tasks"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "bg-color-menu" : ""
+                      } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
+                        expanded ? "justify-start" : "justify-center"
+                      }`
+                    }
                   >
-                    Pinned
-                  </span>
-                </NavLink>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <NavLink
-                  to="/completed-tasks"
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "bg-color-menu" : ""
-                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
-                      expanded ? "justify-start" : "justify-center"
-                    } `
-                  }
+                    <BsPinAngle className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${
+                        expanded ? "w-full" : "hidden"
+                      }`}
+                    >
+                      Pinned
+                    </span>
+                  </NavLink>
+                </motion.li>
+                <motion.li
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <IoCheckmarkCircleOutline className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${
-                      expanded ? "w-full" : "hidden"
-                    }`}
+                  <NavLink
+                    to="/completed-tasks"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "bg-color-menu" : ""
+                      } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
+                        expanded ? "justify-start" : "justify-center"
+                      } `
+                    }
                   >
-                    Completed
-                  </span>
-                </NavLink>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <NavLink
-                  to="/deleted-tasks"
-                  className={({ isActive }) =>
-                    `${
-                      isActive ? "bg-color-menu" : ""
-                    } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
-                      expanded ? "justify-start" : "justify-center"
-                    }`
-                  }
+                    <IoCheckmarkCircleOutline className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${
+                        expanded ? "w-full" : "hidden"
+                      }`}
+                    >
+                      Completed
+                    </span>
+                  </NavLink>
+                </motion.li>
+                <motion.li
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <AiOutlineDelete className="h-7 w-7" />
-                  <span
-                    className={`overflow-hidden transition-all ${
-                      expanded ? "w-full" : "hidden"
-                    }`}
+                  <NavLink
+                    to="/deleted-tasks"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "bg-color-menu" : ""
+                      } hover:text-add-btn flex cursor-pointer items-center space-x-3 rounded-lg p-4 font-nav text-lg text-color-text hover:bg-color-menu/45 lg:text-xl ${
+                        expanded ? "justify-start" : "justify-center"
+                      }`
+                    }
                   >
-                    Deleted
-                  </span>
-                </NavLink>
-              </motion.li>
-            </motion.ul>
+                    <AiOutlineDelete className="h-7 w-7" />
+                    <span
+                      className={`overflow-hidden transition-all ${
+                        expanded ? "w-full" : "hidden"
+                      }`}
+                    >
+                      Deleted
+                    </span>
+                  </NavLink>
+                </motion.li>
+              </motion.ul>
+            </div>
           </div>
-        </div>
-        <div className="flex justify-center pb-10">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ease: "backInOut", duration: 0.5 }}
-            className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu/45 active:font-semibold ${
-              expanded ? "px-10 py-5" : "w-full"
-            }`}
-            onClick={toggleTheme}
-          >
-            {theme === "light" ? (
-              <FiSun className="h-7 w-7" />
-            ) : (
-              <FiMoon className="h-7 w-7" />
-            )}
-            <span
-              className={`overflow-hidden font-button text-xl transition-all ${
-                expanded ? "w-full" : "hidden"
+          <div className="flex justify-center pb-10">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ease: "backInOut", duration: 0.5 }}
+              className={`flex items-center justify-center space-x-2 rounded-lg bg-color-background p-3 text-color-text hover:bg-color-menu/45 active:font-semibold ${
+                expanded ? "px-10 py-5" : "w-full"
               }`}
+              onClick={toggleTheme}
             >
-              {theme === "light" ? "Light" : "Dark"}
-            </span>
-          </motion.button>
-        </div>
-      </nav>
-    </aside>
+              {theme === "light" ? (
+                <FiSun className="h-7 w-7" />
+              ) : (
+                <FiMoon className="h-7 w-7" />
+              )}
+              <span
+                className={`overflow-hidden font-button text-xl transition-all ${
+                  expanded ? "w-full" : "hidden"
+                }`}
+              >
+                {theme === "light" ? "Light" : "Dark"}
+              </span>
+            </motion.button>
+          </div>
+        </nav>
+      </aside>
+    </>
   );
 };
 

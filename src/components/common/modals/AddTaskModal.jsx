@@ -33,7 +33,7 @@ export const AddTaskModal = ({ show, onClose }) => {
     setSelectedDate(null);
   };
 
- const handlePriorityChange = (newPriority) => {
+  const handlePriorityChange = (newPriority) => {
     setPriority(newPriority);
   };
 
@@ -104,30 +104,30 @@ export const AddTaskModal = ({ show, onClose }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-between xl:flex-row xl:items-center xl:space-x-8">
+          <div className="flex flex-col justify-between space-y-2 xl:flex-row xl:items-center xl:space-x-8">
             <div className="flex flex-col space-y-2">
-            <label className="font-title text-color-text ">Priority</label>
-            <PrioritySelector onPriorityChange={handlePriorityChange} />
+              <label className="font-title text-color-text">Due Date</label>
+              <DateSelector
+                selectedDate={selectedDate}
+                setSelectedDate={setSelectedDate}
+              />
             </div>
             <div className="flex flex-col space-y-2">
-            <label className="font-title text-color-text ">Due Date</label>
-            <DateSelector
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-              />
-              </div>
+              <label className="font-title text-color-text">Priority</label>
+              <PrioritySelector onPriorityChange={handlePriorityChange} />
+            </div>
           </div>
           <div className="flex justify-end space-x-5">
             <button
               type="button"
-              className="rounded bg-color-background/50 px-8 py-1 font-button text-sm text-color-text hover:bg-white/20 xl:px-10 xl:py-4 xl:text-lg"
+              className="rounded bg-color-background px-8 py-1 font-button text-sm text-color-text hover:scale-105 hover:bg-color-background/80 xl:px-10 xl:py-4 xl:text-lg"
               onClick={handleCancel}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="rounded bg-color-primary px-8 py-2 font-button text-sm text-white hover:bg-blue-600 xl:px-10 xl:py-4 xl:text-lg"
+              className="rounded bg-color-primary px-8 py-2 font-button text-sm text-white hover:scale-105 hover:bg-color-primary/80 xl:px-10 xl:py-4 xl:text-lg"
             >
               Add
             </button>
