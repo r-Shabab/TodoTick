@@ -53,7 +53,7 @@ function App() {
               </Route>
             </Routes>
           </main>
-          <BottomNavbar />
+          <BottomNavbar theme={theme} toggleTheme={toggleTheme} />
         </div>
       </Router>
     </TaskProvider>

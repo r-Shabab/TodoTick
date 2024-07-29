@@ -23,21 +23,19 @@ export const Logo = () => {
           r={40}
           width="80"
           height="80"
-          fill="#f5f5f5"
-          stroke="#276690"
-          strokeWidth="6"
-          color="#276690"
+          strokeWidth="8"
+          className="fill-color-background stroke-color-primary"
         />
 
         {/* Animated checkmark */}
         <motion.path
           d="M 27 50 L 42 68 L 70 30"
           fill="none"
-          stroke="#276690"
-          strokeWidth="6"
+          strokeWidth="8"
           initial="unchecked"
           animate="checked"
           variants={boxVariants}
+          className="stroke-color-primary"
         />
       </svg>
 
